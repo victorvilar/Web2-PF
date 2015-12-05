@@ -17,14 +17,12 @@ public class PessoaInterfaceImp implements PessoaInterface{
 	@Override
 	public void save(Pessoa pessoa) {
 		isPessoaWithAllData(pessoa);
-		
 		pessoaDAO.save(pessoa);
 	}
 
 	@Override
 	public Pessoa update(Pessoa pessoa) {
 		isPessoaWithAllData(pessoa);
-		
 		return pessoaDAO.update(pessoa);
 	}
 	
@@ -55,6 +53,10 @@ public class PessoaInterfaceImp implements PessoaInterface{
 		}
 		
 		if(pessoa.getMatricula() <= 0){
+			hasError = true;
+		}
+		
+		if(pessoa.getUser() == null){
 			hasError = true;
 		}
 		

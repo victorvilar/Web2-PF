@@ -18,14 +18,20 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name="SEQ_PESSOA", initialValue=1, allocationSize=1, sequenceName="seq_pessoa")
 public class Pessoa implements Serializable {
 	private static final long serialVersionUID = -3379758744266283863L;
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PESSOA")
     private int idPessoa;
+	
 	@Column(nullable=false)
 	private String nomePessoa;
 	private long matricula;
-	private String login;
-	private String senha;
+	
+	//private String login; --substituido login e senha por user
+	//private String senha;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_user")
+	private User user;
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_escolha")	
@@ -34,7 +40,7 @@ public class Pessoa implements Serializable {
 	@ManyToOne 
 	@JoinColumn(name="id_estruturaCurricular")
 	private EstruturaCurricular estruturaCurricular;
-
+	
 	public int getIdPessoa() {
 		return idPessoa;
 	}
@@ -59,22 +65,6 @@ public class Pessoa implements Serializable {
 		this.matricula = matricula;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public Escolha getEscolha() {
 		return escolha;
 	}
@@ -89,6 +79,16 @@ public class Pessoa implements Serializable {
 
 	public void setEstruturaCurricular(EstruturaCurricular estruturaCurricular) {
 		this.estruturaCurricular = estruturaCurricular;
+	}
+
+	
+	public User getUser() {
+		return user;
+	}
+
+	
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

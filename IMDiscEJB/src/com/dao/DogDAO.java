@@ -8,7 +8,7 @@ import com.model.Dog;
 public class DogDAO extends GenericDAO<Dog> {
 
     public DogDAO() {
-	super(Dog.class);
+    	super(Dog.class);
     }
     
     public void delete(Dog dog) {
