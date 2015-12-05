@@ -38,6 +38,33 @@
 			<to-view-id>/pages/protected/admin/deleteDog.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	
+	
+	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createDisciplina</from-outcome>
+			<to-view-id>/pages/protected/admin/createDisciplina.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateDisciplina</from-outcome>
+			<to-view-id>/pages/protected/admin/updateDisciplina.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteDisciplina</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteDisciplina.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
+	
+	
 
 	<application>
 		<resource-bundle>

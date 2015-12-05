@@ -12,7 +12,6 @@ import javax.faces.context.FacesContext;
 
 import com.facade.DisciplinaInterface;
 import com.model.Disciplina;
-import com.model.Disciplina;
 
 @ManagedBean(name = "DisciplinaMB")
 @SessionScoped

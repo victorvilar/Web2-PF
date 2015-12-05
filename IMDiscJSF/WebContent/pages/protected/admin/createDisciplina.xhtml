@@ -11,19 +11,21 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>${msgs.dogCreateHeader}</h3>
 		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
-			<h:outputLabel for="dogName" value="#{msgs.dogName}" />
-			<h:inputText id="dogName" value="#{dogMB.dog.name}" required="true" requiredMessage="#{msgs.dogNameRequired}" />
+			<h:outputLabel for="disciplinaCodigo" value="Codigo: "/>
+			<h:inputText id="disciplinaCodigo" value="#{DisciplinaMB.disciplina.codigo}" required="true"  />
+		
+			<h:outputLabel for="disciplinaName" value="Nome: "/>
+			<h:inputText id="disciplinaName" value="#{DisciplinaMB.disciplina.nomeDisciplina}" required="true"  />
 			
-			<h:outputLabel for="dogWeight" value="#{msgs.dogWeight}" />
-			<h:inputText id="dogWeight" value="#{dogMB.dog.weight}" required="true" requiredMessage="#{msgs.dogWeightRequired}" >
+			<h:outputLabel for="disciplinaWeight" value="Carga Horaria: "/>
+			<h:inputText id="disciplinaCargaHoraria" value="#{DisciplinaMB.disciplina.cargaHoraria}" required="true"  >
 				<f:convertNumber />
 			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{dogMB.createDogEnd()}" value="#{msgs.create}" />
-			<h:commandButton action="#{dogMB.listAllDogs()}" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{DisciplinaMB.createDisciplinaEnd()}" value="#{msgs.create}" />
+			<h:commandButton action="#{DisciplinaMB.listAllDisciplinas()}" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>
