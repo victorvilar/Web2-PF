@@ -16,6 +16,7 @@ import com.model.Disciplina;
 @ManagedBean(name = "DisciplinaMB")
 @SessionScoped
 public class DisciplinaMB implements Serializable {
+	
 	private static final long serialVersionUID = 215121400308620706L;
 
 	private Disciplina disciplina;
@@ -23,10 +24,10 @@ public class DisciplinaMB implements Serializable {
 	@EJB
 	private DisciplinaInterface disciplinaInterface;
 	
-	private static final String CREATE_DOG = "createDisciplina";
-	private static final String DELETE_DOG = "deleteDisciplina"; 
-	private static final String UPDATE_DOG = "updateDisciplina";
-	private static final String LIST_ALL_DOGS = "listAllDisciplinas";
+	private static final String CREATE_DISCIPLINA = "createDisciplina";
+	private static final String DELETE_DISCIPLINA = "deleteDisciplina"; 
+	private static final String UPDATE_DISCIPLINA = "updateDisciplina";
+	private static final String LIST_ALL_DISCIPLINAS = "listAllDisciplinas";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	public Disciplina getDisciplina() {
@@ -34,7 +35,6 @@ public class DisciplinaMB implements Serializable {
 		if(disciplina == null){
 			disciplina = new Disciplina();
 		}
-		
 		return disciplina;
 	}
 
@@ -47,23 +47,23 @@ public class DisciplinaMB implements Serializable {
 	}
 
 	public String updateDisciplinaStart(){
-		return UPDATE_DOG;
+		return UPDATE_DISCIPLINA;
 	}
 	
 	public String updateDisciplinaEnd(){
 		try {
 			disciplinaInterface.update(disciplina);
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Check if the weight is above 0 or call the adm");
+			sendErrorMessageToUser("Error. Call the adm");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		
 		sendInfoMessageToUser("Operation Complete: Update");
-		return LIST_ALL_DOGS;
+		return LIST_ALL_DISCIPLINAS;
 	}
 	
 	public String deleteDisciplinaStart(){
-		return DELETE_DOG;
+		return DELETE_DISCIPLINA;
 	}
 	
 	public String deleteDisciplinaEnd(){
@@ -76,11 +76,11 @@ public class DisciplinaMB implements Serializable {
 		
 		sendInfoMessageToUser("Operation Complete: Delete");
 		
-		return LIST_ALL_DOGS;
+		return LIST_ALL_DISCIPLINAS;
 	}
 	
 	public String createDisciplinaStart(){
-		return CREATE_DOG;
+		return CREATE_DISCIPLINA;
 	}
 	
 	public String createDisciplinaEnd(){
@@ -94,11 +94,11 @@ public class DisciplinaMB implements Serializable {
 		
 		sendInfoMessageToUser("Operation Complete: Create");
 		
-		return LIST_ALL_DOGS;
+		return LIST_ALL_DISCIPLINAS;
 	}
 	
 	public String listAllDisciplinas(){
-		return LIST_ALL_DOGS;
+		return LIST_ALL_DISCIPLINAS;
 	}
 	
 	private void sendInfoMessageToUser(String message){

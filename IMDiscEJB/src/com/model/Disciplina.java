@@ -36,12 +36,10 @@ public class Disciplina implements Serializable {
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="escolha_disciplina", 
-			joinColumns = @JoinColumn(name="id_escolha"),
-			inverseJoinColumns = @JoinColumn(name="id_disciplina"))
-	private Collection<Disciplina> disciplinas;
-	
-	// * -> *
-	private Escolha escolha;
+			joinColumns = @JoinColumn(name="id_disciplina"),
+			inverseJoinColumns = @JoinColumn(name="id_escolha"))
+	private Collection<Escolha> escolhas;
+
 	
 	public int getIdDisciplina() {
 		return idDisciplina;
@@ -67,20 +65,12 @@ public class Disciplina implements Serializable {
 		this.estruturascurriculares = estruturascurriculares;
 	}
 
-	public Collection<Disciplina> getDisciplinas() {
-		return disciplinas;
+	public Collection<Escolha> getEscolhas() {
+		return escolhas;
 	}
 
-	public void setDisciplinas(Collection<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
-	}
-
-	public Escolha getEscolha() {
-		return escolha;
-	}
-
-	public void setEscolha(Escolha escolha) {
-		this.escolha = escolha;
+	public void setEscolhas(Collection<Escolha> escolhas) {
+		this.escolhas = escolhas;
 	}
 
 	public int getCargaHoraria() {

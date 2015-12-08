@@ -25,7 +25,6 @@ public class UserMB {
 			
 			user = userFacade.findUserByEmail(userEmail);
 		}
-		
 		return user;
 	}
 	
