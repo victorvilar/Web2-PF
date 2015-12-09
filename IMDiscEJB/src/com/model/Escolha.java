@@ -28,7 +28,7 @@ public class Escolha implements Serializable {
 	private Collection<Disciplina> disciplinas;
 
 	@ManyToOne
-	@JoinColumn(name = "idCurso")
+	@JoinColumn(name = "idPessoa")
 	private Pessoa pessoa;	
 
 	private String semestreEscolha;
