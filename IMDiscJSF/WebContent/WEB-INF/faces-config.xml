@@ -63,6 +63,26 @@
 	</navigation-rule>
 	
 	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createCurso</from-outcome>
+			<to-view-id>/pages/protected/admin/createCurso.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateCurso</from-outcome>
+			<to-view-id>/pages/protected/admin/updateCurso.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteCurso</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteCurso.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
+	
 	
 	
 

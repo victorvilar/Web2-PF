@@ -29,7 +29,7 @@ public class Escolha implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "idCurso")
-	private Pessoa pessoa;
+	private Pessoa pessoa;	
 
 	private String semestreEscolha;
 

@@ -15,23 +15,17 @@
 			<h:outputLabel for="pessoaName" value="Nome: "/>
 			<h:inputText id="pessoaName" value="#{PessoaMB.pessoa.nomePessoa}" required="true"  />
 		
-			<h:outputLabel for="pessoaMatricula" value="Matrícula: "/>
+			<h:outputLabel for="pessoaMatricula" value="Matricula: "/>
 			<h:inputText id="pessoaMatricula" value="#{PessoaMB.pessoa.matricula}" required="true"  />
+
 			
-			<h:outputLabel for="pessoaSenha" value="Senha: "/>
-			<h:inputText type="password" id="pessoaSenha" value="#{PessoaMB.pessoa.user.password}" required="true"  />
+			<h:outputLabel for="pessoaEmail" value="E-mail: "/>
+			<h:inputText id="pessoaEmail" value="#{PessoaMB.pessoa.user.email}" required="true"  />
 			
-			<h:outputLabel for="pessoaNomeUsuario" value="Nome de usuario: "/>
-			<h:inputText id="pessoaNomeUsuario" value="#{PessoaMB.pessoa.user.name}" required="true"  />
-			
-			<h:outputLabel for="pessoaEmail" value="Nome de usuario: "/>
-			<h:inputText id="pessoaEmail" value="#{PessoaMB.pessoa.user.email}" required="true"  >
-				<f:convertNumber />
-			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{PessoaMB.createPessoaEnd()}" value="#{msgs.create}" />
-			<h:commandButton action="#{PessoaMB.listAllPessoass()}" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{pessoaMB.createPessoaEnd()}" value="#{msgs.create}" />
+			<h:commandButton action="#{pessoaMB.listAllPessoass()}" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>

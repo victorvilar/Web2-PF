@@ -24,8 +24,6 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PESSOA")
 	private int idPessoa;
-
-	@Column(nullable = false)
 	private String nomePessoa;
 	
 	private long matricula;
