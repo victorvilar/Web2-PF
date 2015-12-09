@@ -14,19 +14,19 @@
 		<h:panelGrid columns="2" styleClass="panelGrid"
 			rowClasses="panelFirstLine,panelNextLine">
 
-			<h:outputLabel for="nomeCurso" value="Nome: " />
-			<h:inputText id="nomeCurso" value="#{ CursoMB.curso.nomeCurso }"
+			<h:outputLabel for="nomeEstruturaCurricular" value="Nome: " />
+			<h:inputText id="nomeEstruturaCurricular" value="#{ EstruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
 				required="true" />
 
-			<h:outputLabel for="cargaHoraria" value="Carga horária: " />
-			<h:inputText id="cargaHoraria" value="#{ CursoMB.curso.cargaHoraria }" required="true"  >
+			<h:outputLabel for="idCurso" value="Id do curso: " />
+			<h:inputText id="idCurso" value="#{ EstruturaCurricularMB.estruturaCurricular.curso.idCurso }" required="true"  >
 				<f:convertNumber />
 			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ CursoMB.createCursoEnd() }"
+			<h:commandButton action="#{ EstruturaCurricularMB.createEstruturaCurricularEnd() }"
 				value="#{msgs.create}" />
-			<h:commandButton action="#{ CursoMB.listAllCursos() }"
+			<h:commandButton action="#{ EstruturaCurricularMB.listAllEstruturaCurriculares() }"
 				value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br />

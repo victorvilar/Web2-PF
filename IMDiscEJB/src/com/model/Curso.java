@@ -18,7 +18,6 @@ public class Curso implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CURSO")
     private int idCurso;
-	@Column(nullable=false)
 	private String nomeCurso;
 	private int cargaHoraria;
 	
