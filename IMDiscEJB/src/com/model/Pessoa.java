@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +24,7 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PESSOA")
 	private int idPessoa;
 	private String nomePessoa;
-	
+
 	private long matricula;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -39,8 +38,8 @@ public class Pessoa implements Serializable {
 	@JoinColumn(name = "id_estruturaCurricular")
 	private EstruturaCurricular estruturaCurricular;
 
-	//Getters and Setters
-	
+	// Getters and Setters
+
 	public int getIdPessoa() {
 		return idPessoa;
 	}
@@ -80,11 +79,11 @@ public class Pessoa implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	public Collection<Escolha> getEscolhas() {
 		return escolhas;
 	}
-	
+
 	public void setEscolhas(Collection<Escolha> escolhas) {
 		this.escolhas = escolhas;
 	}

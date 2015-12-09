@@ -12,28 +12,27 @@ import javax.faces.context.FacesContext;
 
 import com.facade.PessoaInterface;
 import com.model.Pessoa;
-import com.model.Pessoa;
 
 @ManagedBean(name = "PessoaMB")
 @SessionScoped
 public class PessoaMB implements Serializable {
-	
+
 	private static final long serialVersionUID = -329216827348989761L;
-	
+
 	private static final String CREATE_PESSOA = "createPessoa";
-	private static final String DELETE_PESSOA = "deletePessoa"; 
+	private static final String DELETE_PESSOA = "deletePessoa";
 	private static final String UPDATE_PESSOA = "updatePessoa";
 	private static final String LIST_ALL_PESSOAS = "listAllPessoas";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
-	
+
 	private Pessoa pessoa;
-	
+
 	@EJB
 	private PessoaInterface pessoaInterface;
-	
+
 	public Pessoa getPessoa() {
-		
-		if(pessoa == null){
+
+		if (pessoa == null) {
 			pessoa = new Pessoa();
 		}
 		return pessoa;
@@ -47,11 +46,11 @@ public class PessoaMB implements Serializable {
 		return pessoaInterface.findAll();
 	}
 
-	public String updatePessoaStart(){
+	public String updatePessoaStart() {
 		return UPDATE_PESSOA;
 	}
-	
-	public String updatePessoaEnd(){
+
+	public String updatePessoaEnd() {
 		try {
 			pessoaInterface.update(pessoa);
 		} catch (EJBException e) {
@@ -61,58 +60,57 @@ public class PessoaMB implements Serializable {
 		sendInfoMessageToUser("Operation Complete: Update");
 		return LIST_ALL_PESSOAS;
 	}
-	
-	public String deletePessoaStart(){
+
+	public String deletePessoaStart() {
 		return DELETE_PESSOA;
 	}
-	
-	public String deletePessoaEnd(){
+
+	public String deletePessoaEnd() {
 		try {
 			pessoaInterface.delete(pessoa);
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the ADM");
 			return STAY_IN_THE_SAME_PAGE;
-		}			
+		}
 		sendInfoMessageToUser("Operation Complete: Delete");
-		
+
 		return LIST_ALL_PESSOAS;
 	}
-	
-	public String createPessoaStart(){
+
+	public String createPessoaStart() {
 		return CREATE_PESSOA;
 	}
-	
-	public String createPessoaEnd(){
+
+	public String createPessoaEnd() {
 		try {
 			pessoaInterface.save(pessoa);
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Error. Call the adm");
-			
+
 			return STAY_IN_THE_SAME_PAGE;
-		}		
+		}
 		sendInfoMessageToUser("Operation Complete: Create");
-		
+
 		return LIST_ALL_PESSOAS;
 	}
-	
-	public String listAllPessoas(){
+
+	public String listAllPessoas() {
 		return LIST_ALL_PESSOAS;
 	}
-	
-	private void sendInfoMessageToUser(String message){
+
+	private void sendInfoMessageToUser(String message) {
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
 	}
-	
-	private void sendErrorMessageToUser(String message){
+
+	private void sendErrorMessageToUser(String message) {
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
 	}
-	
+
 	private FacesContext getContext() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
 	}
 
-	
 }

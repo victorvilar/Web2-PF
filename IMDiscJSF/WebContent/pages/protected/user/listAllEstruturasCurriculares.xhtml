@@ -12,24 +12,24 @@
 		<h3>#{msgs.loginHello}: #{userMB.user.name} || <h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" /> </h3>
 	
 		<h:messages />
-		<h:dataTable value="#{EstruturaCurricularMB.allEstruturaCurriculars }" var="estruturacurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" >
+		<h:dataTable value="#{EstruturaCurricularMB.allEstruturaCurriculars}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" >
 			<h:column>
 				
-				#{ estruturacurricular.nomeEstrutura }
+				"#{estruturaCurricular.nomeEstrutura}"
 			</h:column>
 			<h:column>				
-				#{ estruturacurricular.curso.idCurso }
+				#{ estruturaCurricular.curso.idCurso }
 			</h:column>
 			<h:column>
 				<h:panelGrid columns="2">
 					<!-- Always save the id as hidden when you use a request scope MB -->
-					<h:inputHidden value="#{ estruturacurricular.idEstruturaCurricular }" />
+					<h:inputHidden value="#{estruturaCurricular.idEstruturaCurricular }" />
 					
-					<h:commandButton action="#{ EstruturaCurricularMB.updateEstruturaCurricularStart() }" value="#{msgs.update}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{ EstruturaCurricularMB.estruturaCurricular }" value="#{ estruturacurricular }" />
+					<h:commandButton action="#{EstruturaCurricularMB.updateEstruturaCurricularStart() }" value="#{msgs.update}" rendered="#{userMB.userAdmin}" >
+						<f:setPropertyActionListener target="#{EstruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
 					</h:commandButton>
 					<h:commandButton action="#{ EstruturaCurricularMB.deleteEstruturaCurricularStart() }" value="#{msgs.delete}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{ EstruturaCurricularMB.estruturaCurricular }" value="#{ estruturacurricular }" />
+						<f:setPropertyActionListener target="#{ EstruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
 					</h:commandButton>
 				</h:panelGrid>
 			</h:column>

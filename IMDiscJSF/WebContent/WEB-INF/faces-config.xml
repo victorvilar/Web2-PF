@@ -83,7 +83,25 @@
 		</navigation-case>
 	</navigation-rule>	
 	
-	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createEstruturaCurricular</from-outcome>
+			<to-view-id>/pages/protected/admin/createEstruturaCurricular.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateEstruturaCurricular</from-outcome>
+			<to-view-id>/pages/protected/admin/updateEstruturaCurricular.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteEstruturaCurricular</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteEstruturaCurricular.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
 	
 
 	<application>
