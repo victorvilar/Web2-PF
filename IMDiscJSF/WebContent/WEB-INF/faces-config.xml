@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-    version="2.0">
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
 
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>logout</from-outcome>
 			<to-view-id>/pages/protected/user/listAllDogs.xhtml</to-view-id>
-			<redirect/>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -23,7 +22,7 @@
 		<navigation-case>
 			<from-outcome>createDog</from-outcome>
 			<to-view-id>/pages/protected/admin/createDog.xhtml</to-view-id>
-			<redirect/>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -38,15 +37,20 @@
 			<to-view-id>/pages/protected/admin/deleteDog.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	
-	
-	
+
+
+
+<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllDisciplinas</from-outcome>
+			<to-view-id>/pages/protected/user/listAllDisciplinas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>createDisciplina</from-outcome>
 			<to-view-id>/pages/protected/admin/createDisciplina.xhtml</to-view-id>
-			<redirect/>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -61,13 +65,19 @@
 			<to-view-id>/pages/protected/admin/deleteDisciplina.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	
+
+
+<navigation-rule>
+	<navigation-case>
+		<from-outcome>listAllCursos</from-outcome>
+		<to-view-id>/pages/protected/user/listAllCursos.xhtml</to-view-id>
+	</navigation-case>
+</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>createCurso</from-outcome>
 			<to-view-id>/pages/protected/admin/createCurso.xhtml</to-view-id>
-			<redirect/>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -81,13 +91,19 @@
 			<from-outcome>deleteCurso</from-outcome>
 			<to-view-id>/pages/protected/admin/deleteCurso.xhtml</to-view-id>
 		</navigation-case>
-	</navigation-rule>	
-	
+	</navigation-rule>
+
+<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllEstruturasCurriculares</from-outcome>
+			<to-view-id>/pages/protected/user/listAllEstruturasCurriculares.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>createEstruturaCurricular</from-outcome>
 			<to-view-id>/pages/protected/admin/createEstruturaCurricular.xhtml</to-view-id>
-			<redirect/>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -101,8 +117,34 @@
 			<from-outcome>deleteEstruturaCurricular</from-outcome>
 			<to-view-id>/pages/protected/admin/deleteEstruturaCurricular.xhtml</to-view-id>
 		</navigation-case>
-	</navigation-rule>	
-	
+	</navigation-rule>
+
+
+<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllUsers</from-outcome>
+			<to-view-id>/pages/protected/user/listAllUsers.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createUser</from-outcome>
+			<to-view-id>/pages/protected/admin/createUser.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateUser</from-outcome>
+			<to-view-id>/pages/protected/admin/updateUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteUser</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 	<application>
 		<resource-bundle>
