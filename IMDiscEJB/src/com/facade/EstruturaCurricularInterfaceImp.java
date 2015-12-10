@@ -59,7 +59,7 @@ public class EstruturaCurricularInterfaceImp implements EstruturaCurricularInter
 		}
 		
 		if (hasError){
-			throw new IllegalArgumentException("The estruturacurricular is missing data. Check the parameters, they should have value.");
+			throw new IllegalArgumentException("The estruturaCurricular is missing data. Check the parameters, they should have value.");
 		}
 	}
 }

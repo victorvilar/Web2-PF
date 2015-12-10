@@ -12,10 +12,9 @@
 		<h3>#{msgs.loginHello}: #{userMB.user.name} || <h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" /> </h3>
 	
 		<h:messages />
-		<h:dataTable value="#{EstruturaCurricularMB.allEstruturaCurriculars}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" >
+		<h:dataTable value="#{EstruturaCurricularMB.allEstruturaCurriculares}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" >
 			<h:column>
-				
-				"#{estruturaCurricular.nomeEstrutura}"
+				#{ estruturaCurricular.nomeEstrutura }
 			</h:column>
 			<h:column>				
 				#{ estruturaCurricular.curso.idCurso }

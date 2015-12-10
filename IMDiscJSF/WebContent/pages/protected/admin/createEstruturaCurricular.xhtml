@@ -15,19 +15,19 @@
 			rowClasses="panelFirstLine,panelNextLine">
 
 			<h:outputLabel for="nomeEstruturaCurricular" value="Nome: " />
-			<h:inputText id="nomeEstruturaCurricular" value="#{ EstruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
+			<h:inputText id="nomeEstruturaCurricular" value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
 				required="true" />
 			
 			<h:outputLabel value="Curso: " />
-			<h:selectOneMenu value="#{EstruturaCurricularMB.curso.idCurso}"> 
-    			<f:selectItems value="#{cursoMB.allCursos}" var="curso" itemValue="#{curso.idCurso}" itemLabel="#{curso.nomeCurso}" converter="generic"/>
+			<h:selectOneMenu value="#{estruturaCurricularMB.indexCurso}"> 
+    			<f:selectItems value="#{cursoMB.allCursos}" var="curso" itemValue="#{curso.idCurso}" itemLabel="#{curso.nomeCurso}"/>
     		</h:selectOneMenu>
 			
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ EstruturaCurricularMB.createEstruturaCurricularEnd() }"
+			<h:commandButton action="#{ estruturaCurricularMB.createEstruturaCurricularEnd() }"
 				value="#{msgs.create}" />
-			<h:commandButton action="#{ EstruturaCurricularMB.listAllEstruturaCurriculares() }"
+			<h:commandButton action="#{ estruturaCurricularMB.listAllEstruturaCurriculares() }"
 				value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br />
