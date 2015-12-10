@@ -11,11 +11,11 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.dogDeleteHeader}: #{ EstruturaCurricularMB.estruturaCurricular.nomeEstrutura }?</h3>
-		<h:inputHidden value="#{ EstruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }" />
+		<h3>#{msgs.dogDeleteHeader}: #{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }?</h3>
+		<h:inputHidden value="#{ estruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }" />
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ EstruturaCurricularMB.deleteEstruturaCurricularEnd() }" value="#{msgs.delete}" />
-			<h:commandButton action="#{ EstruturaCurricularMB.listAllEstruturaCurriculares() }" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{ estruturaCurricularMB.deleteEstruturaCurricularEnd() }" value="#{msgs.delete}" />
+			<h:commandButton action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>

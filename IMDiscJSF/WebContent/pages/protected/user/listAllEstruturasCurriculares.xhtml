@@ -12,24 +12,32 @@
 		<h3>#{msgs.loginHello}: #{userMB.user.name} || <h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" /> </h3>
 	
 		<h:messages />
-		<h:dataTable value="#{EstruturaCurricularMB.allEstruturaCurriculares}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" >
+		<h:dataTable value="#{estruturaCurricularMB.allEstruturaCurriculares}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" border="1">
 			<h:column>
+				<f:facet name="header">Nome da Estrutura Curricular</f:facet>
 				#{ estruturaCurricular.nomeEstrutura }
+				
 			</h:column>
-			<h:column>				
-				#{ estruturaCurricular.curso.idCurso }
+			
+			<h:column >
+				<f:facet name="header">Curso</f:facet>		
+				#{ estruturaCurricular.curso.nomeCurso }
 			</h:column>
+			
 			<h:column>
+				<f:facet name="header">Opções</f:facet>
 				<h:panelGrid columns="2">
 					<!-- Always save the id as hidden when you use a request scope MB -->
-					<h:inputHidden value="#{estruturaCurricular.idEstruturaCurricular }" />
+					<h:inputHidden value="#{ estruturaCurricular.idEstruturaCurricular }" />
+										
+					<h:commandButton action="#{ estruturaCurricularMB.updateEstruturaCurricularStart() }" value="#{msgs.update}" rendered="#{userMB.userAdmin}" >
+						<f:setPropertyActionListener target="#{ estruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
+					</h:commandButton>
 					
-					<h:commandButton action="#{EstruturaCurricularMB.updateEstruturaCurricularStart() }" value="#{msgs.update}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{EstruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
+					<h:commandButton action="#{ estruturaCurricularMB.deleteEstruturaCurricularStart() }" value="#{msgs.delete}" rendered="#{userMB.userAdmin}" >
+						<f:setPropertyActionListener target="#{ estruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
 					</h:commandButton>
-					<h:commandButton action="#{ EstruturaCurricularMB.deleteEstruturaCurricularStart() }" value="#{msgs.delete}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{ EstruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
-					</h:commandButton>
+					
 				</h:panelGrid>
 			</h:column>
 		</h:dataTable>

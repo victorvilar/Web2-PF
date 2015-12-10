@@ -39,7 +39,7 @@ public class EstruturaCurricularMB implements Serializable {
 	private static final String CREATE_ESTRUTURA_CURRICULAR = "createEstruturaCurricular";
 	private static final String DELETE_ESTRUTURA_CURRICULAR = "deleteEstruturaCurricular";
 	private static final String UPDATE_ESTRUTURA_CURRICULAR = "updateEstruturaCurricular";
-	private static final String LIST_ALL_ESTRUTURA_CURRICULARES = "listAllEstruturasCurriculares";
+	private static final String LIST_ALL_ESTRUTURAS_CURRICULARES = "listAllEstruturasCurriculares";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	public EstruturaCurricular getEstruturaCurricular() {
@@ -53,7 +53,7 @@ public class EstruturaCurricularMB implements Serializable {
 		this.estruturaCurricular = estruturaCurricular;
 	}
 
-	public List<EstruturaCurricular> getAllEstruturaCurriculars() {
+	public List<EstruturaCurricular> getAllEstruturaCurriculares() {
 		return estruturaCurricularInterface.findAll();
 	}
 
@@ -63,14 +63,21 @@ public class EstruturaCurricularMB implements Serializable {
 
 	public String updateEstruturaCurricularEnd() {
 		try {
+
+			EstruturaCurricular ec = new EstruturaCurricular();
+			ec = estruturaCurricularInterface.find(estruturaCurricular.getIdEstruturaCurricular());
+			curso = ec.getCurso();
+			estruturaCurricular.setCurso(curso);
+			
 			estruturaCurricularInterface.update(estruturaCurricular);
+						
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Call the adm");
+			sendErrorMessageToUser("Error. Call the adm1");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 
 		sendInfoMessageToUser("Operation Complete: Update");
-		return LIST_ALL_ESTRUTURA_CURRICULARES;
+		return LIST_ALL_ESTRUTURAS_CURRICULARES;
 	}
 
 	public String deleteEstruturaCurricularStart() {
@@ -79,6 +86,7 @@ public class EstruturaCurricularMB implements Serializable {
 
 	public String deleteEstruturaCurricularEnd() {
 		try {
+			estruturaCurricular = estruturaCurricularInterface.find(estruturaCurricular.getIdEstruturaCurricular());
 			estruturaCurricularInterface.delete(estruturaCurricular);
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the ADM");
@@ -86,8 +94,7 @@ public class EstruturaCurricularMB implements Serializable {
 		}
 
 		sendInfoMessageToUser("Operation Complete: Delete");
-
-		return LIST_ALL_ESTRUTURA_CURRICULARES;
+		return LIST_ALL_ESTRUTURAS_CURRICULARES;
 	}
 
 	public String createEstruturaCurricularStart() {
@@ -96,52 +103,20 @@ public class EstruturaCurricularMB implements Serializable {
 
 	public String createEstruturaCurricularEnd() {
 		try {
-			if(indexCurso == -1){
-				System.out.println("----------------------");
-				System.out.println("----Na mesma---");
-				System.out.println("----------------------");
-				
-			}
-			
-			else{
-				System.out.println("----------------------");
-				System.out.println(indexCurso);
-				System.out.println("----------------------");
-
 				curso = cursoInterface.find(indexCurso);
-				
-				System.out.println("----------------------");
-				System.out.println(curso.getNomeCurso());
-				System.out.println("----------------------");
-				System.out.println("**********************");
-				System.out.println(curso.getCargaHoraria());
-				System.out.println("----------------------");
-
-				System.out.println();
-				System.out.println("**********************");
-				System.out.println(estruturaCurricular.getNomeEstrutura());
-				System.out.println("----------------------");
-				
 				estruturaCurricular.setCurso(curso);
-				
-				estruturaCurricularInterface.save(estruturaCurricular);
-				
-				
-			}
-			
-						
-		} catch (EJBException e) {
+				estruturaCurricularInterface.save(estruturaCurricular);		
+		}
+		catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the adm");
 			return STAY_IN_THE_SAME_PAGE;
 		}
-
 		sendInfoMessageToUser("Operation Complete: Create");
-
-		return LIST_ALL_ESTRUTURA_CURRICULARES;
+		return LIST_ALL_ESTRUTURAS_CURRICULARES;
 	}
 
-	public String listAllEstruturaCurriculares() {
-		return LIST_ALL_ESTRUTURA_CURRICULARES;
+	public String listAllEstruturasCurriculares() {
+		return LIST_ALL_ESTRUTURAS_CURRICULARES;
 	}
 
 	private void sendInfoMessageToUser(String message) {

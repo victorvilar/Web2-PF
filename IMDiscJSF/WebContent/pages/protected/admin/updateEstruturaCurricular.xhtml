@@ -10,21 +10,24 @@
 <h:body>
 	<h:form>
 		<h:messages/>
+		<h3>#{ msgs.dogUpdateHeader }: #{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }</h3>
+		<h:inputText value="#{ estruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }"  />
+		<h:inputText value="#{ estruturaCurricularMB.curso.idCurso }" />
+		<h:inputText  value="#{ estruturaCurricularMB.curso.cargaHoraria }"  />
 		
-		<h3>#{ msgs.dogUpdateHeader }: #{ EstruturaCurricularMB.estruturaCurricular.nomeEstrutura }</h3>
-		<h:inputHidden value="#{ EstruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }" />
 		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
-			<h:outputLabel for="nomeEstrutura" value="#{ msgs.dogName }" />
-			<h:inputText id="nomeEstrutura" value="#{ EstruturaCurricularMB.estruturaCurricular.nomeEstrutura }" required="true" requiredMessage="#{msgs.dogNameRequired}" />
 			
-			<h:outputLabel for="idCurso" value="#{msgs.dogWeight}" />
-			<h:inputText id="idCurso" value="#{ EstruturaCurricularMB.estruturaCurricular.curso.idCurso }" required="true" requiredMessage="#{msgs.dogWeightRequired}" >
-				<f:convertNumber />
+			<h:outputLabel for="nomeEstrutura" value="Nome da Estrutura Curricular" />
+			<h:inputText id="nomeEstrutura" value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }" required="true" requiredMessage="Name is required"  />
+			
+			<h:outputLabel for="idCurso" value="Nome do Curso: " />
+			<h:inputText id="idCurso" value="#{ estruturaCurricularMB.estruturaCurricular.curso.nomeCurso }" required="true" readonly="true" >
+			
 			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ EstruturaCurricularMB.updateEstruturaCurricularEnd() }" value="#{msgs.update}" />
-			<h:commandButton action="#{ EstruturaCurricularMB.listAllEstruturaCurriculares() }" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{ estruturaCurricularMB.updateEstruturaCurricularEnd() }" value="#{ msgs.update }" />
+			<h:commandButton action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }" value="#{ msgs.cancel }" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>
