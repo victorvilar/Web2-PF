@@ -5,15 +5,20 @@ import java.util.Map;
 
 import javax.ejb.Stateless;
 
+
 import com.model.User;
 
 @Stateless
 public class UserDAO extends GenericDAO<User> {
 
     public UserDAO() {
-	super(User.class);
+    	super(User.class);
     }
-
+    
+    public void delete(User user) {
+        super.delete(user.getId(), User.class);
+    }
+    
     public User findUserByEmail(String email) {
 	Map<String, Object> parameters = new HashMap<String, Object>();
 	parameters.put("email", email);

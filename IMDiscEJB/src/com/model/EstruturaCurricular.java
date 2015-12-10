@@ -27,7 +27,7 @@ public class EstruturaCurricular implements Serializable {
 	private String nomeEstrutura;
 
 	@OneToMany(mappedBy = "estruturaCurricular")
-	private Collection<Pessoa> pessoas;
+	private Collection<User> users;
 
 	@ManyToOne
 	@JoinColumn(name = "idCurso")
@@ -37,6 +37,8 @@ public class EstruturaCurricular implements Serializable {
 	@JoinTable(name = "estruturacurricular_disciplina", joinColumns = @JoinColumn(name = "id_estruturacurricular") , inverseJoinColumns = @JoinColumn(name = "id_disciplina") )
 	private Collection<Disciplina> disciplinas;
 
+	//GETTERS AND SETTERS
+	
 	public int getIdEstruturaCurricular() {
 		return idEstruturaCurricular;
 	}
@@ -45,12 +47,28 @@ public class EstruturaCurricular implements Serializable {
 		this.idEstruturaCurricular = idEstruturaCurricular;
 	}
 
-	public Collection<Pessoa> getPessoas() {
-		return pessoas;
+	public String getNomeEstrutura() {
+		return nomeEstrutura;
 	}
 
-	public void setPessoas(Collection<Pessoa> pessoas) {
-		this.pessoas = pessoas;
+	public void setNomeEstrutura(String nomeEstrutura) {
+		this.nomeEstrutura = nomeEstrutura;
+	}
+
+	public Collection<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Collection<User> users) {
+		this.users = users;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 	public Collection<Disciplina> getDisciplinas() {
@@ -61,24 +79,7 @@ public class EstruturaCurricular implements Serializable {
 		this.disciplinas = disciplinas;
 	}
 
-	
-	public String getNomeEstrutura() {
-		return nomeEstrutura;
-	}
 
 	
-	public void setNomeEstrutura(String nomeEstrutura) {
-		this.nomeEstrutura = nomeEstrutura;
-	}
-
 	
-	public Curso getCurso() {
-		return curso;
-	}
-
-	
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
 }

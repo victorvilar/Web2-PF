@@ -28,21 +28,13 @@ public class Escolha implements Serializable {
 	private Collection<Disciplina> disciplinas;
 
 	@ManyToOne
-	@JoinColumn(name = "idPessoa")
-	private Pessoa pessoa;	
+	@JoinColumn(name = "idUser")
+	private User user;	
 
 	private String semestreEscolha;
 
 	public int getIdEscolha() {
 		return idEscolha;
-	}
-
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
 	}
 
 	public String getSemestreEscolha() {
@@ -56,15 +48,20 @@ public class Escolha implements Serializable {
 	public void setIdEscolha(int idEscolha) {
 		this.idEscolha = idEscolha;
 	}
-
 	
 	public Collection<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
-
 	
 	public void setDisciplinas(Collection<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
+	
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

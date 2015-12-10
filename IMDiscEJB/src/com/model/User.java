@@ -1,11 +1,18 @@
 package com.model;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +31,15 @@ public class User {
 	private String password;
 	private String name;
 	private String role;
+	private long matricula;
+	
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Escolha> escolhas;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_estruturaCurricular")
+	private EstruturaCurricular estruturaCurricular;
 	
 	//Getters and Setters
 	
@@ -81,4 +97,36 @@ public class User {
 		
 		return false;
 	}
+
+	
+	public long getMatricula() {
+		return matricula;
+	}
+
+	
+	public void setMatricula(long matricula) {
+		this.matricula = matricula;
+	}
+
+	
+	public Collection<Escolha> getEscolhas() {
+		return escolhas;
+	}
+
+	
+	public void setEscolhas(Collection<Escolha> escolhas) {
+		this.escolhas = escolhas;
+	}
+
+	
+	public EstruturaCurricular getEstruturaCurricular() {
+		return estruturaCurricular;
+	}
+
+	
+	public void setEstruturaCurricular(EstruturaCurricular estruturaCurricular) {
+		this.estruturaCurricular = estruturaCurricular;
+	}
+
+	
 }

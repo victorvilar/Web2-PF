@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages/>
+		
+		<h3>#{msgs.userUpdateHeader}: #{userExtMB.user.name}</h3>
+		<h:inputHidden value="#{userMB.user.id}" />
+		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
+			
+			<h:outputLabel for="userName" value="Nome: " />
+			<h:inputText id="userName" value="#{userExtMB.user.name}" required="true" requiredMessage="#{msgs.userNameRequired}" />
+			
+			<h:outputLabel for="userMatricula" value="Matrícula: " />
+			<h:inputText id="userMatricula" value="#{userExtMB.user.matricula}" required="true" requiredMessage="#{msgs.userMatriculaRequired}" />
+			
+			<h:outputLabel for="userEmail" value="Email: " />
+			<h:inputText id="userEmail" value="#{userExtMB.user.email}" required="true" requiredMessage="#{msgs.userEmailRequired}" />
+			
+			<h:outputLabel for="userPassword" value="Senha: " />
+			<h:inputText id="userPassword" value="#{userExtMB.user.password}" required="true" requiredMessage="#{msgs.userPasswordRequired}" />
+			
+			<h:outputLabel value="Permissão: " />
+			<h:selectOneMenu value="#{userExtMB.user.role}">
+				<f:selectItem itemValue="ADMIN" itemLabel="ADMIN" />
+				<f:selectItem itemValue="USER" itemLabel="USER" />
+			</h:selectOneMenu>>
+			
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{userExtMB.updateUserEnd()}" value="#{msgs.update}" />
+			<h:commandButton action="#{userExtMB.listAllUsers()}" value="#{msgs.cancel}" immediate="true" />
+		</h:panelGrid>
+		<br/>
+	</h:form>
+</h:body>
+</html>

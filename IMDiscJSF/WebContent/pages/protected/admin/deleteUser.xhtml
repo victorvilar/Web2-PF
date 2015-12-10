@@ -11,11 +11,11 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.dogDeleteHeader}: #{dogMB.dog.name}?</h3>
-		<h:inputHidden value="#{dogMB.dog.id}" />
+		<h3>#{msgs.userDeleteHeader}: #{userExtMB.user.name}?</h3>
+		<h:inputHidden value="#{userExtMB.user.id}" />
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{dogMB.deleteDogEnd()}" value="#{msgs.delete}" />
-			<h:commandButton action="#{dogMB.listAllDogs()}" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{userExtMB.deleteUserEnd()}" value="#{msgs.delete}" />
+			<h:commandButton action="#{userExtMB.listAllUsers()}" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>
