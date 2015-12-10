@@ -51,7 +51,7 @@ public class UserExtMB {
 		try {
 			userFacade.update(user);
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Nao foi possível atualizar o user");
+			sendErrorMessageToUser("Error. Nao foi possï¿½vel atualizar o user");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operation Complete: Update");

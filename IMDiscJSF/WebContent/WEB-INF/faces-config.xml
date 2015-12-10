@@ -40,7 +40,7 @@
 
 
 
-<navigation-rule>
+	<navigation-rule>
 		<navigation-case>
 			<from-outcome>listAllDisciplinas</from-outcome>
 			<to-view-id>/pages/protected/user/listAllDisciplinas.xhtml</to-view-id>
@@ -67,12 +67,12 @@
 	</navigation-rule>
 
 
-<navigation-rule>
-	<navigation-case>
-		<from-outcome>listAllCursos</from-outcome>
-		<to-view-id>/pages/protected/user/listAllCursos.xhtml</to-view-id>
-	</navigation-case>
-</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllCursos</from-outcome>
+			<to-view-id>/pages/protected/user/listAllCursos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>createCurso</from-outcome>
@@ -93,7 +93,7 @@
 		</navigation-case>
 	</navigation-rule>
 
-<navigation-rule>
+	<navigation-rule>
 		<navigation-case>
 			<from-outcome>listAllEstruturasCurriculares</from-outcome>
 			<to-view-id>/pages/protected/user/listAllEstruturasCurriculares.xhtml</to-view-id>
@@ -120,7 +120,7 @@
 	</navigation-rule>
 
 
-<navigation-rule>
+	<navigation-rule>
 		<navigation-case>
 			<from-outcome>listAllUsers</from-outcome>
 			<to-view-id>/pages/protected/user/listAllUsers.xhtml</to-view-id>
@@ -135,14 +135,42 @@
 	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>updateUser</from-outcome>
-			<to-view-id>/pages/protected/admin/updateUser.xhtml</to-view-id>
+			<from-outcome>deleteUser</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteUser.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>deleteUser</from-outcome>
-			<to-view-id>/pages/protected/admin/deleteUser.xhtml</to-view-id>
+			<from-outcome>updateUser</from-outcome>
+			<to-view-id>/pages/protected/admin/updateUser.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllEscolhas</from-outcome>
+			<to-view-id>/pages/protected/user/listAllEscolhas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/createEscolha.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/updateEscolha.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteEscolha.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
