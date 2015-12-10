@@ -156,6 +156,10 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM
+  NAME="rules:#pages#protected#admin#deleteEstruturaCurricular.xhtml"
+  PATH="/pages/protected/admin/deleteEstruturaCurricular.xhtml"
+  SHAPE="240,1825,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
   NAME="rules:#pages#protected#admin#createEstruturaCurricular.xhtml"
   PATH="/pages/protected/admin/createEstruturaCurricular.xhtml"
   SHAPE="240,1601,0,0" model-entity="JSFProcessGroup"/>
@@ -163,8 +167,50 @@
   NAME="rules:#pages#protected#admin#updateEstruturaCurricular.xhtml"
   PATH="/pages/protected/admin/updateEstruturaCurricular.xhtml"
   SHAPE="240,1713,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#protected#admin#deleteEstruturaCurricular.xhtml"
-  PATH="/pages/protected/admin/deleteEstruturaCurricular.xhtml"
-  SHAPE="240,1825,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::14" SHAPE="32,1921,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::14" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllEscolhas::#pages#protected#user#listAllEscolhas.xhtml"
+    NAME="output" PATH="/pages/protected/user/listAllEscolhas.xhtml"
+    TARGET="rules:#pages#protected#user#listAllEscolhas.xhtml"
+    TITLE="listAllEscolhas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::15" SHAPE="32,2033,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::15" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="createEscolha::#pages#protected#admin#createEscolha.xhtml"
+    NAME="output" PATH="/pages/protected/admin/createEscolha.xhtml"
+    TARGET="rules:#pages#protected#admin#createEscolha.xhtml"
+    TITLE="createEscolha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::16" SHAPE="32,2145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::16" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="updateEscolha::#pages#protected#admin#updateEscolha.xhtml"
+    NAME="output" PATH="/pages/protected/admin/updateEscolha.xhtml"
+    TARGET="rules:#pages#protected#admin#updateEscolha.xhtml"
+    TITLE="updateEscolha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#createEscolha.xhtml"
+  PATH="/pages/protected/admin/createEscolha.xhtml" SHAPE="240,1937,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#updateEscolha.xhtml"
+  PATH="/pages/protected/admin/updateEscolha.xhtml"
+  SHAPE="216,2016,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#deleteEscolha.xhtml"
+  PATH="/pages/protected/admin/deleteEscolha.xhtml" SHAPE="240,2161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::17" SHAPE="32,2257,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::17" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="deleteEscolha::#pages#protected#admin#deleteEscolha.xhtml"
+    NAME="output" PATH="/pages/protected/admin/deleteEscolha.xhtml"
+    TARGET="rules:#pages#protected#admin#deleteEscolha.xhtml"
+    TITLE="deleteEscolha" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#listAllEscolhas.xhtml"
+  PATH="/pages/protected/user/listAllEscolhas.xhtml"
+  SHAPE="240,2273,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

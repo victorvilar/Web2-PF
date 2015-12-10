@@ -60,7 +60,7 @@ public class EscolhaInterfaceImp implements EscolhaInterface {
 
 		if (hasError) {
 			throw new IllegalArgumentException(
-					"The escolha is missing data. Check the name and weight, they should have value.");
+					"The escolha is missing data. Check the fields, they should have value.");
 		}
 	}
 }

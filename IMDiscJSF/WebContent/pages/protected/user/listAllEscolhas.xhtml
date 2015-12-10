@@ -17,7 +17,7 @@
 		</h3>
 
 		<h:messages />
-		<h:dataTable value="#{dogMB.allDogs}" var="dog" styleClass="table"
+		<h:dataTable value="#{escolhaMB.allEscolhas}" var="escolha" styleClass="table"
 			headerClass="tableColumnsHeader"
 			rowClasses="tableFirstLine,tableNextLine">
 			<h:column>
@@ -25,27 +25,27 @@
 					#{msgs.dogName}
 				</f:facet>
 				
-				#{dog.name}
+				#{escolha.semestreEscolha}
 			</h:column>
 			<h:column>
 				<f:facet name="header">
 					#{msgs.dogWeight}
 				</f:facet>
 				
-				#{dog.weight}
+				#{escolha.user}
 			</h:column>
 			<h:column>
 				<h:panelGrid columns="2">
 					<!-- Always save the id as hidden when you use a request scope MB -->
-					<h:inputHidden value="#{dog.id}" />
+					<h:inputHidden value="#{escolha.idEscolha}" />
 
-					<h:commandButton action="#{dogMB.updateDogStart()}"
+					<h:commandButton action="#{escolhaMB.updateEscolhaStart()}"
 						value="#{msgs.update}" rendered="#{userMB.userAdmin}">
-						<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
+						<f:setPropertyActionListener target="#{escolhaMB.escolha}" value="#{escolha}" />
 					</h:commandButton>
-					<h:commandButton action="#{dogMB.deleteDogStart()}"
+					<h:commandButton action="#{escolhaMB.deleteEscolhaStart()}"
 						value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
-						<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
+						<f:setPropertyActionListener target="#{escolhaMB.escolha}" value="#{escolha}" />
 					</h:commandButton>
 				</h:panelGrid>
 			</h:column>
@@ -55,13 +55,12 @@
 				<f:selectItems value="#{ disciplinaMB.allDisciplinas}" var="n"
 					itemLabel="#{n.codigo} - #{n.nomeDisciplina} (#{n.cargaHoraria}h)"
 					itemValue="#{n.codigo}" />
-			</h:selectManyCheckbox>
+		</h:selectManyCheckbox>
 		<!-- This button is displayed to the user, just to you see the error msg  -->
 		<h:commandButton action="createDog" value="#{msgs.create} #{msgs.dog}" />
 		<h:commandButton action="createDisciplina" value="Criar Disciplina" />
 		<h:commandButton action="createCurso" value="Criar Curso" />
 		<h:commandButton action="createEscolha" value="Criar Escolha" />
-
 	</h:form>
 </h:body>
 </html>

@@ -103,6 +103,31 @@
 		</navigation-case>
 	</navigation-rule>	
 	
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>listAllEscolhas</from-outcome>
+			<to-view-id>/pages/protected/user/listAllEscolhas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>createEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/createEscolha.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>updateEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/updateEscolha.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>deleteEscolha</from-outcome>
+			<to-view-id>/pages/protected/admin/deleteEscolha.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>	
 
 	<application>
 		<resource-bundle>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages/>
+		
+		<h3>Atualizar escolha #{ escolhaMB.escolha.idEscolha }</h3>
+		<h:inputHidden value="#{ escolhaMB.escolha.idEscolha }" />
+		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
+			<h:outputLabel for="semestre" value="#{msgs.dogName}" />
+			<h:inputText id="semestre" value="#{ escolhaMB.escolha.semestreEscolha }" required="true" requiredMessage="#{msgs.dogNameRequired}" />
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{ escolhaMB.updateEscolhaEnd() }" value="#{msgs.update}" />
+			<h:commandButton action="#{ escolhaMB.listAllEscolhas() }" value="#{msgs.cancel}" immediate="true" />
+		</h:panelGrid>
+		<br/>
+	</h:form>
+</h:body>
+</html>
