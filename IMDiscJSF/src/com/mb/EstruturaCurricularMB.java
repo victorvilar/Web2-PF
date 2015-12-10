@@ -30,7 +30,7 @@ public class EstruturaCurricularMB implements Serializable  {
 	private static final String CREATE_ESTRUTURA_CURRICULAR = "createEstruturaCurricular";
 	private static final String DELETE_ESTRUTURA_CURRICULAR = "deleteEstruturaCurricular"; 
 	private static final String UPDATE_ESTRUTURA_CURRICULAR = "updateEstruturaCurricular";
-	private static final String LIST_ALL_ESTRUTURA_CURRICULARES = "listAllEstruturaCurriculares";
+	private static final String LIST_ALL_ESTRUTURA_CURRICULARES = "listAllEstruturasCurriculares";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	public EstruturaCurricular getEstruturaCurricular() {

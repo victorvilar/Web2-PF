@@ -15,18 +15,18 @@
 			rowClasses="panelFirstLine,panelNextLine">
 
 			<h:outputLabel for="nomeCurso" value="Nome: " />
-			<h:inputText id="nomeCurso" value="#{ CursoMB.curso.nomeCurso }"
+			<h:inputText id="nomeCurso" value="#{ cursoMB.curso.nomeCurso }"
 				required="true" />
 
 			<h:outputLabel for="cargaHoraria" value="Carga horária: " />
-			<h:inputText id="cargaHoraria" value="#{ CursoMB.curso.cargaHoraria }" required="true"  >
+			<h:inputText id="cargaHoraria" value="#{ cursoMB.curso.cargaHoraria }" required="true"  >
 				<f:convertNumber />
 			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ CursoMB.createCursoEnd() }"
+			<h:commandButton action="#{ cursoMB.createCursoEnd() }"
 				value="#{msgs.create}" />
-			<h:commandButton action="#{ CursoMB.listAllCursos() }"
+			<h:commandButton action="#{ cursoMB.listAllCursos() }"
 				value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br />

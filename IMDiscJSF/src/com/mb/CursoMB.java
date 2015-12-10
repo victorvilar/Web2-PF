@@ -1,28 +1,20 @@
 package com.mb;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import com.facade.CursoInterface;
 import com.model.Curso;
 
-@ManagedBean(name = "CursoMB")
-@SessionScoped
-public class CursoMB implements Serializable  {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8187732078408137806L;
-
-	private Curso curso;
+@ManagedBean
+@RequestScoped
+public class CursoMB {
 	
 	@EJB
 	private CursoInterface cursoInterface;
@@ -32,6 +24,8 @@ public class CursoMB implements Serializable  {
 	private static final String UPDATE_CURSO = "updateCurso";
 	private static final String LIST_ALL_CURSOS = "listAllCursos";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
+
+	private Curso curso;
 
 	public Curso getCurso() {
 		
@@ -57,7 +51,7 @@ public class CursoMB implements Serializable  {
 		try {
 			cursoInterface.update(curso);
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Call the adm");
+			sendErrorMessageToUser("Error. Call the adm1");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		
@@ -73,7 +67,7 @@ public class CursoMB implements Serializable  {
 		try {
 			cursoInterface.delete(curso);
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Call the ADM");
+			sendErrorMessageToUser("Error. Call the ADM2");
 			return STAY_IN_THE_SAME_PAGE;
 		}			
 		
@@ -90,7 +84,7 @@ public class CursoMB implements Serializable  {
 		try {
 			cursoInterface.save(curso);
 		} catch (EJBException e) {
-			sendErrorMessageToUser("Error. Call the adm");
+			sendErrorMessageToUser("Error. Call the adm3");
 			
 			return STAY_IN_THE_SAME_PAGE;
 		}		

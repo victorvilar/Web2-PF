@@ -13,19 +13,19 @@
 		
 		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
 			<h:outputLabel for="disciplinaCodigo" value="Codigo: "/>
-			<h:inputText id="disciplinaCodigo" value="#{DisciplinaMB.disciplina.codigo}" required="true"  />
+			<h:inputText id="disciplinaCodigo" value="#{ disciplinaMB.disciplina.codigo}" required="true"  />
 		
 			<h:outputLabel for="disciplinaName" value="Nome: "/>
-			<h:inputText id="disciplinaName" value="#{DisciplinaMB.disciplina.nomeDisciplina}" required="true"  />
+			<h:inputText id="disciplinaName" value="#{ disciplinaMB.disciplina.nomeDisciplina}" required="true"  />
 			
 			<h:outputLabel for="disciplinaWeight" value="Carga Horaria: "/>
-			<h:inputText id="disciplinaCargaHoraria" value="#{DisciplinaMB.disciplina.cargaHoraria}" required="true"  >
+			<h:inputText id="disciplinaCargaHoraria" value="#{ disciplinaMB.disciplina.cargaHoraria}" required="true"  >
 				<f:convertNumber />
 			</h:inputText>
 		</h:panelGrid>
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{DisciplinaMB.createDisciplinaEnd()}" value="#{msgs.create}" />
-			<h:commandButton action="#{DisciplinaMB.listAllDisciplinas()}" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{ disciplinaMB.createDisciplinaEnd()}" value="#{msgs.create}" />
+			<h:commandButton action="#{ disciplinaMB.listAllDisciplinas()}" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>

@@ -1,34 +1,31 @@
 package com.mb;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import com.facade.DisciplinaInterface;
 import com.model.Disciplina;
 
-@ManagedBean(name = "DisciplinaMB")
-@SessionScoped
-public class DisciplinaMB implements Serializable {
-	
-	private static final long serialVersionUID = 215121400308620706L;
-
-	private Disciplina disciplina;
-	
+@ManagedBean
+@RequestScoped
+public class DisciplinaMB {
+		
 	@EJB
 	private DisciplinaInterface disciplinaInterface;
 	
 	private static final String CREATE_DISCIPLINA = "createDisciplina";
 	private static final String DELETE_DISCIPLINA = "deleteDisciplina"; 
 	private static final String UPDATE_DISCIPLINA = "updateDisciplina";
-	private static final String LIST_ALL_DISCIPLINAS = "listAllDisciplinas";
+	private static final String LIST_ALL_DISCIPLINAS = "listAllDogs";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
+
+	private Disciplina disciplina;
 
 	public Disciplina getDisciplina() {
 		
