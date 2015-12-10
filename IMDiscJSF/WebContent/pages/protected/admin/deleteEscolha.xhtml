@@ -11,7 +11,7 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>Tem certeza que deseja deletar #{escolhaMB.escolha.semestreEscolha}?</h3>
+		<h3>#{msgs.DeleteHeader}: #{escolhaMB.escolha.semestreEscolha}?</h3>
 		<h:inputHidden value="#{ escolhaMB.escolha.idEscolha }" />
 		<h:panelGrid columns="2">
 			<h:commandButton action="#{ escolhaMB.deleteEscolhaEnd() }" value="#{msgs.delete}" />

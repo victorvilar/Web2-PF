@@ -15,14 +15,14 @@
 		<b:column span="4">
 			<h:messages />
 
-			<h3>Update Escolha</h3>
+			<h3>#{msgs.UpdateHeader}: Escolha</h3>
 			<h:inputHidden value="#{ escolhaMB.escolha.idEscolha }" />
 			<h:panelGrid columns="2" styleClass="panelGrid"
 				rowClasses="panelFirstLine,panelNextLine">
-				<h:outputLabel for="semestre" value="#{msgs.dogName}" />
+				<h:outputLabel for="semestre" value="#{msgs.Name}" />
 				<h:inputText id="semestre"
 					value="#{ escolhaMB.escolha.semestreEscolha }" required="true"
-					requiredMessage="#{msgs.dogNameRequired}" />
+					requiredMessage="#{msgs.ParameterRequired}" />
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">

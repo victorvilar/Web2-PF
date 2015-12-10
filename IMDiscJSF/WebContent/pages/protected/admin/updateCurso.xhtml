@@ -15,18 +15,18 @@
 		<b:column span="4">
 			<h:messages />
 
-			<h3>Update Curso</h3>
+			<h3>#{msgs.UpdateHeader}: Curso</h3>
 			<h:inputHidden value="#{ cursoMB.curso.idCurso }" />
 			<h:panelGrid columns="2" styleClass="panelGrid"
 				rowClasses="panelFirstLine,panelNextLine">
-				<h:outputLabel for="nomeCurso" value="#{ msgs.dogName }" />
+				<h:outputLabel for="nomeCurso" value="#{ msgs.Name }" />
 				<h:inputText id="nomeCurso" value="#{ cursoMB.curso.nomeCurso }"
-					required="true" requiredMessage="#{msgs.dogNameRequired}" />
+					required="true" requiredMessage="#{msgs.ParameterRequired}" />
 
-				<h:outputLabel for="cargaHorariaCurso" value="#{msgs.dogWeight}" />
+				<h:outputLabel for="cargaHorariaCurso" value="#{msgs.ParameterRequired}" />
 				<h:inputText id="cargaHorariaCurso"
 					value="#{ cursoMB.curso.cargaHoraria }" required="true"
-					requiredMessage="#{msgs.dogWeightRequired}">
+					requiredMessage="#{msgs.ParameterRequired}">
 					<f:convertNumber />
 				</h:inputText>
 			</h:panelGrid>

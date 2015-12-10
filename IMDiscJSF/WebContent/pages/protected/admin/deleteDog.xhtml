@@ -11,7 +11,7 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.dogDeleteHeader}: #{dogMB.dog.name}?</h3>
+		<h3>#{msgs.DeleteHeader}: #{dogMB.dog.name}?</h3>
 		<h:inputHidden value="#{dogMB.dog.id}" />
 		<h:panelGrid columns="2">
 			<h:commandButton action="#{dogMB.deleteDogEnd()}" value="#{msgs.delete}" />

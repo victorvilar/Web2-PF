@@ -11,14 +11,14 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.dogUpdateHeader}: #{dogMB.dog.name}</h3>
+		<h3>#{msgs.UpdateHeader}: #{dogMB.dog.name}</h3>
 		<h:inputHidden value="#{dogMB.dog.id}" />
 		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
-			<h:outputLabel for="dogName" value="#{msgs.dogName}" />
-			<h:inputText id="dogName" value="#{dogMB.dog.name}" required="true" requiredMessage="#{msgs.dogNameRequired}" />
+			<h:outputLabel for="dogName" value="#{msgs.Name}" />
+			<h:inputText id="dogName" value="#{dogMB.dog.name}" required="true" requiredMessage="#{msgs.ParameterRequired}" />
 			
-			<h:outputLabel for="dogWeight" value="#{msgs.dogWeight}" />
-			<h:inputText id="dogWeight" value="#{dogMB.dog.weight}" required="true" requiredMessage="#{msgs.dogWeightRequired}" >
+			<h:outputLabel for="dogWeight" value="#{msgs.Weight}" />
+			<h:inputText id="dogWeight" value="#{dogMB.dog.weight}" required="true" requiredMessage="#{msgs.ParameterRequired}" >
 				<f:convertNumber />
 			</h:inputText>
 		</h:panelGrid>
