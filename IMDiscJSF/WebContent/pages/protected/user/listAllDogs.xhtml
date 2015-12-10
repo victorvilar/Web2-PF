@@ -18,39 +18,7 @@
 		</h3>
 		<b:column span="4">
 			<h:messages />
-			<h:dataTable value="#{dogMB.allDogs}" var="dog" styleClass="table"
-				headerClass="tableColumnsHeader"
-				rowClasses="tableFirstLine,tableNextLine">
-				<h:column>
-					<f:facet name="header">
-					#{msgs.dogName}
-				</f:facet>
-				
-				#{dog.name}
-			</h:column>
-				<h:column>
-					<f:facet name="header">
-					#{msgs.dogWeight}
-				</f:facet>
-				
-				#{dog.weight}
-			</h:column>
-				<h:column>
-					<h:panelGrid columns="2">
-						<!-- Always save the id as hidden when you use a request scope MB -->
-						<h:inputHidden value="#{dog.id}" />
-
-						<h:commandButton action="#{dogMB.updateDogStart()}"
-							value="#{msgs.update}" rendered="#{userMB.userAdmin}">
-							<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
-						</h:commandButton>
-						<h:commandButton action="#{dogMB.deleteDogStart()}"
-							value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
-							<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
-						</h:commandButton>
-					</h:panelGrid>
-				</h:column>
-			</h:dataTable>
+			
 			<h:selectManyCheckbox layout="pageDirection">
 				<f:selectItems value="#{ disciplinaMB.allDisciplinas}" var="n"
 					itemLabel="#{n.codigo} - #{n.nomeDisciplina} (#{n.cargaHoraria}h)"

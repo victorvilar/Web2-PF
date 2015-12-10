@@ -10,7 +10,6 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import com.facade.EscolhaInterface;
-import com.model.Curso;
 import com.model.Escolha;
 
 @ManagedBean

@@ -11,11 +11,11 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.dogDeleteHeader}: #{ CursoMB.curso.nomeCurso }?</h3>
-		<h:inputHidden value="#{ CursoMB.curso.idCurso }" />
+		<h3>Tem certeza que deseja deletar o Curso #{ cursoMB.curso.nomeCurso }?</h3>
+		<h:inputHidden value="#{ cursoMB.curso.idCurso }" />
 		<h:panelGrid columns="2">
-			<h:commandButton action="#{ CursoMB.deleteCursoEnd() }" value="#{msgs.delete}" />
-			<h:commandButton action="#{ CursoMB.listAllCursos() }" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{ cursoMB.deleteCursoEnd() }" value="#{msgs.delete}" />
+			<h:commandButton action="#{ cursoMB.listAllCursos() }" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>

@@ -11,7 +11,7 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.userDeleteHeader}: #{userExtMB.user.name}?</h3>
+		<h3>Tem certeza que deseja deletar o usuario #{userExtMB.user.name}?</h3>
 		<h:inputHidden value="#{userExtMB.user.id}" />
 		<h:panelGrid columns="2">
 			<h:commandButton action="#{userExtMB.deleteUserEnd()}" value="#{msgs.delete}" />

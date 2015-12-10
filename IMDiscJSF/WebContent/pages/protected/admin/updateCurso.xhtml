@@ -3,30 +3,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<h:messages/>
-		
-		<h3>#{ msgs.dogUpdateHeader }: #{ CursoMB.curso.nomeCurso }</h3>
-		<h:inputHidden value="#{ CursoMB.curso.idCurso }" />
-		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
-			<h:outputLabel for="nomeCurso" value="#{ msgs.dogName }" />
-			<h:inputText id="nomeCurso" value="#{ CursoMB.curso.nomeCurso }" required="true" requiredMessage="#{msgs.dogNameRequired}" />
-			
-			<h:outputLabel for="cargaHorariaCurso" value="#{msgs.dogWeight}" />
-			<h:inputText id="cargaHorariaCurso" value="#{ CursoMB.curso.cargaHoraria }" required="true" requiredMessage="#{msgs.dogWeightRequired}" >
-				<f:convertNumber />
-			</h:inputText>
-		</h:panelGrid>
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{ CursoMB.updateCursoEnd() }" value="#{msgs.update}" />
-			<h:commandButton action="#{ CursoMB.listAllCursos() }" value="#{msgs.cancel}" immediate="true" />
-		</h:panelGrid>
-		<br/>
+		<b:column span="4"></b:column>
+		<b:column span="4">
+			<h:messages />
+
+			<h3>Update Curso</h3>
+			<h:inputHidden value="#{ cursoMB.curso.idCurso }" />
+			<h:panelGrid columns="2" styleClass="panelGrid"
+				rowClasses="panelFirstLine,panelNextLine">
+				<h:outputLabel for="nomeCurso" value="#{ msgs.dogName }" />
+				<h:inputText id="nomeCurso" value="#{ cursoMB.curso.nomeCurso }"
+					required="true" requiredMessage="#{msgs.dogNameRequired}" />
+
+				<h:outputLabel for="cargaHorariaCurso" value="#{msgs.dogWeight}" />
+				<h:inputText id="cargaHorariaCurso"
+					value="#{ cursoMB.curso.cargaHoraria }" required="true"
+					requiredMessage="#{msgs.dogWeightRequired}">
+					<f:convertNumber />
+				</h:inputText>
+			</h:panelGrid>
+			<br />
+			<h:panelGrid columns="2">
+				<h:commandButton action="#{ cursoMB.updateCursoEnd() }"
+					value="#{msgs.update}" />
+				<h:commandButton action="#{ cursoMB.listAllCursos() }"
+					value="#{msgs.cancel}" immediate="true" />
+			</h:panelGrid>
+			<br />
+
+		</b:column>
+		<b:column span="4"></b:column>
 	</h:form>
 </h:body>
 </html>
