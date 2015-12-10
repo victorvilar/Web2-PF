@@ -12,8 +12,8 @@ import javax.faces.context.FacesContext;
 import com.facade.UserFacade;
 import com.model.User;
 
-@RequestScoped
 @ManagedBean
+@RequestScoped
 public class UserExtMB {
 	
 	@EJB

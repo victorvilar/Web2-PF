@@ -4,64 +4,69 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
 	<h:form>
+		<b:column span="4"></b:column>
+
 		<h3>
 			#{msgs.loginHello}: #{userMB.user.name} ||
 			<h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" />
 		</h3>
-
-		<h:messages />
-		<h:dataTable value="#{dogMB.allDogs}" var="dog" styleClass="table"
-			headerClass="tableColumnsHeader"
-			rowClasses="tableFirstLine,tableNextLine">
-			<h:column>
-				<f:facet name="header">
+		<b:column span="4">
+			<h:messages />
+			<h:dataTable value="#{dogMB.allDogs}" var="dog" styleClass="table"
+				headerClass="tableColumnsHeader"
+				rowClasses="tableFirstLine,tableNextLine">
+				<h:column>
+					<f:facet name="header">
 					#{msgs.dogName}
 				</f:facet>
 				
 				#{dog.name}
 			</h:column>
-			<h:column>
-				<f:facet name="header">
+				<h:column>
+					<f:facet name="header">
 					#{msgs.dogWeight}
 				</f:facet>
 				
 				#{dog.weight}
 			</h:column>
-			<h:column>
-				<h:panelGrid columns="2">
-					<!-- Always save the id as hidden when you use a request scope MB -->
-					<h:inputHidden value="#{dog.id}" />
+				<h:column>
+					<h:panelGrid columns="2">
+						<!-- Always save the id as hidden when you use a request scope MB -->
+						<h:inputHidden value="#{dog.id}" />
 
-					<h:commandButton action="#{dogMB.updateDogStart()}"
-						value="#{msgs.update}" rendered="#{userMB.userAdmin}">
-						<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
-					</h:commandButton>
-					<h:commandButton action="#{dogMB.deleteDogStart()}"
-						value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
-						<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
-					</h:commandButton>
-				</h:panelGrid>
-			</h:column>
-		</h:dataTable>
-		<h:selectManyCheckbox 
-				layout="pageDirection">
+						<h:commandButton action="#{dogMB.updateDogStart()}"
+							value="#{msgs.update}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
+						</h:commandButton>
+						<h:commandButton action="#{dogMB.deleteDogStart()}"
+							value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener target="#{dogMB.dog}" value="#{dog}" />
+						</h:commandButton>
+					</h:panelGrid>
+				</h:column>
+			</h:dataTable>
+			<h:selectManyCheckbox layout="pageDirection">
 				<f:selectItems value="#{ disciplinaMB.allDisciplinas}" var="n"
 					itemLabel="#{n.codigo} - #{n.nomeDisciplina} (#{n.cargaHoraria}h)"
 					itemValue="#{n.codigo}" />
 			</h:selectManyCheckbox>
-		<!-- This button is displayed to the user, just to you see the error msg  -->
-		<h:commandButton action="createDog" value="#{msgs.create} #{msgs.dog}" />
-		<h:commandButton action="createDisciplina" value="Criar Disciplina" />
-		<h:commandButton action="createCurso" value="Criar Curso" />
-		<h:commandButton action="createEscolha" value="Criar Escolha" />
 
+		</b:column>
+		<b:column span="4">
+			<!-- This button is displayed to the user, just to you see the error msg  -->
+			<h:commandButton action="createDog"
+				value="#{msgs.create} #{msgs.dog}" />
+			<h:commandButton action="createDisciplina" value="Criar Disciplina" />
+			<h:commandButton action="createCurso" value="Criar Curso" />
+			<h:commandButton action="createUser" value="Criar Usuario" />
+
+		</b:column>
 	</h:form>
 </h:body>
 </html>
