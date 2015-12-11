@@ -19,7 +19,7 @@
 		<b:column span="4">
 			<h:messages />
 			<h:dataTable
-				value="#{componenteCurricularMB.allComponenteCurriculares}"
+				value="#{componenteCurricularMB.getAllComponenteCurricularesByEstrutura(componenteCurricularMB.componenteCurricular.idComponenteCurricular)}"
 				var="componenteCurricular" styleClass="table"
 				headerClass="tableColumnsHeader"
 				rowClasses="tableFirstLine,tableNextLine">
@@ -59,14 +59,6 @@
 						<!-- Always save the id as hidden when you use a request scope MB -->
 						<h:inputHidden
 							value="#{componenteCurricular.idComponenteCurricular}" />
-
-						<h:commandButton
-							action="#{componenteCurricularMB.listComponenteCurricularEstrutura()}"
-							value="Listar componentes da estrutura" rendered="#{userMB.userAdmin}">
-							<f:setPropertyActionListener
-								target="#{componenteCurricularMB.componenteCurricular}"
-								value="#{componenteCurricular}" />
-						</h:commandButton>
 						<h:commandButton
 							action="#{componenteCurricularMB.updateComponenteCurricularStart()}"
 							value="#{msgs.update}" rendered="#{userMB.userAdmin}">

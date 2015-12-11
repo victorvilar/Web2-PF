@@ -55,5 +55,10 @@ public class ComponenteCurricularInterfaceImp implements ComponenteCurricularInt
 			throw new IllegalArgumentException("The componentecurricular is missing data. Check the parameters, they should have value.");
 		}
 	}
+
+	@Override
+	public List<ComponenteCurricular> findByIdEstrutura(int id_estrutura) {
+		return componenteCurricularDAO.listaComponentesDeEstrutura(id_estrutura);
+	}
 }
 

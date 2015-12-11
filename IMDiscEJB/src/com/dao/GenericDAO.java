@@ -13,7 +13,7 @@ public abstract class GenericDAO<T> {
 	private final static String UNIT_NAME = "CrudPU";
 
 	@PersistenceContext(unitName = UNIT_NAME)
-	private EntityManager em;
+	protected EntityManager em;
 
 	private Class<T> entityClass;
 

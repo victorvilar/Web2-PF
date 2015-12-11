@@ -18,4 +18,6 @@ public interface ComponenteCurricularInterface{
 	public abstract ComponenteCurricular find(int entityID);
 
 	public abstract List<ComponenteCurricular> findAll();
+
+	public abstract List<ComponenteCurricular> findByIdEstrutura(int id_estrutura);
 }

@@ -39,6 +39,7 @@ public class ComponenteCurricularMB {
 	private static final String DELETE_COMPONENTE_CURRICULAR = "deleteComponenteCurricular";
 	private static final String UPDATE_COMPONENTE_CURRICULAR = "updateComponenteCurricular";
 	private static final String LIST_ALL_COMPONENTES_CURRICULARES = "listAllComponentesCurriculares";
+	private static final String LIST_COMPONENTE_CURRICULAR_ESTRUTURA = "listAllComponenteCurricularEstrutura";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	public ComponenteCurricular getComponenteCurricular() {
@@ -54,6 +55,10 @@ public class ComponenteCurricularMB {
 
 	public List<ComponenteCurricular> getAllComponenteCurriculares() {
 		return componenteCurricularInterface.findAll();
+	}
+
+	public List<ComponenteCurricular> getAllComponenteCurricularesByEstrutura(int id) {
+		return componenteCurricularInterface.findByIdEstrutura(id);
 	}
 
 	public String updateComponenteCurricularStart() {
@@ -123,6 +128,10 @@ public class ComponenteCurricularMB {
 		return LIST_ALL_COMPONENTES_CURRICULARES;
 	}
 
+	public String listComponenteCurricularEstrutura() {
+		return LIST_COMPONENTE_CURRICULAR_ESTRUTURA;
+	}
+	
 	private void sendInfoMessageToUser(String message) {
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
