@@ -61,21 +61,21 @@ public class ComponenteCurricularMB {
 	}
 
 	public String updateComponenteCurricularEnd() {
-	/*	try {
+		try {
 
-			ComponenteCurricular ec = new ComponenteCurricular();
+			/*ComponenteCurricular ec = new ComponenteCurricular();
 			ec = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
 			curso = ec.getCurso();
 			componenteCurricular.setCurso(curso);
 
-			componenteCurricularInterface.update(componenteCurricular);
+			componenteCurricularInterface.update(componenteCurricular);*/
 
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the adm1");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 
-		sendInfoMessageToUser("Operation Complete: Update");*/
+		sendInfoMessageToUser("Operation Complete: Update");
 		return LIST_ALL_COMPONENTES_CURRICULARES;
 	}
 
@@ -84,15 +84,15 @@ public class ComponenteCurricularMB {
 	}
 
 	public String deleteComponenteCurricularEnd() {
-		/*try {
-			componenteCurricular = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
-			componenteCurricularInterface.delete(componenteCurricular);
+		try {
+			/*componenteCurricular = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
+			componenteCurricularInterface.delete(componenteCurricular);*/
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the ADM");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 
-		sendInfoMessageToUser("Operation Complete: Delete");*/
+		sendInfoMessageToUser("Operation Complete: Delete");
 		return LIST_ALL_COMPONENTES_CURRICULARES;
 	}
 

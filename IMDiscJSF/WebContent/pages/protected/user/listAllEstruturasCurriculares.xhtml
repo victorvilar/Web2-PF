@@ -3,46 +3,71 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<h3>#{msgs.loginHello}: #{userMB.user.name} || <h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" /> </h3>
-	
-		<h:messages />
-		<h:dataTable value="#{estruturaCurricularMB.allEstruturaCurriculares}" var="estruturaCurricular" styleClass="table" headerClass="tableColumnsHeader" rowClasses="tableFirstLine,tableNextLine" border="1">
-			<h:column>
-				<f:facet name="header">Nome da Estrutura Curricular</f:facet>
+		<b:column span="4"></b:column>
+		<h3>
+			#{msgs.loginHello}: #{userMB.user.name} ||
+			<h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" />
+		</h3>
+		<b:column span="4">
+			<h:messages />
+			<h:dataTable
+				value="#{estruturaCurricularMB.allEstruturaCurriculares}"
+				var="estruturaCurricular" styleClass="table"
+				headerClass="tableColumnsHeader"
+				rowClasses="tableFirstLine,tableNextLine" border="1">
+				<h:column>
+					<f:facet name="header">Nome da Estrutura Curricular</f:facet>
 				#{ estruturaCurricular.nomeEstrutura }
 				
 			</h:column>
-			
-			<h:column >
-				<f:facet name="header">Curso</f:facet>		
+
+				<h:column>
+					<f:facet name="header">Curso</f:facet>		
 				#{ estruturaCurricular.curso.nomeCurso }
 			</h:column>
-			
-			<h:column>
-				<f:facet name="header">Opções</f:facet>
-				<h:panelGrid columns="2">
-					<!-- Always save the id as hidden when you use a request scope MB -->
-					<h:inputHidden value="#{ estruturaCurricular.idEstruturaCurricular }" />
-										
-					<h:commandButton action="#{ estruturaCurricularMB.updateEstruturaCurricularStart() }" value="#{msgs.update}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{ estruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
-					</h:commandButton>
-					
-					<h:commandButton action="#{ estruturaCurricularMB.deleteEstruturaCurricularStart() }" value="#{msgs.delete}" rendered="#{userMB.userAdmin}" >
-						<f:setPropertyActionListener target="#{ estruturaCurricularMB.estruturaCurricular }" value="#{estruturaCurricular}" />
-					</h:commandButton>
-					
-				</h:panelGrid>
-			</h:column>
-		</h:dataTable>
-		<!-- This button is displayed to the user, just to you see the error msg  -->
-		<h:commandButton action="createEstruturaCurricular" value="#{msgs.create}" />
+
+				<h:column>
+					<f:facet name="header">Opções</f:facet>
+					<h:panelGrid columns="2">
+						<!-- Always save the id as hidden when you use a request scope MB -->
+						<h:inputHidden
+							value="#{ estruturaCurricular.idEstruturaCurricular }" />
+
+						<h:commandButton
+							action="#{ estruturaCurricularMB.updateEstruturaCurricularStart() }"
+							value="#{msgs.update}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener
+								target="#{ estruturaCurricularMB.estruturaCurricular }"
+								value="#{estruturaCurricular}" />
+						</h:commandButton>
+
+						<h:commandButton
+							action="#{ estruturaCurricularMB.deleteEstruturaCurricularStart() }"
+							value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener
+								target="#{ estruturaCurricularMB.estruturaCurricular }"
+								value="#{estruturaCurricular}" />
+						</h:commandButton>
+
+					</h:panelGrid>
+				</h:column>
+			</h:dataTable>
+		</b:column>
+		<b:column span="4">
+			<!-- This button is displayed to the user, just to you see the error msg  -->
+			<h:commandButton action="createEstruturaCurricular"
+				value="#{msgs.create}" />
+				<h:commandButton action="listAllDogs"
+				value="#{msgs.cancel}" />
+		</b:column>
 	</h:form>
 </h:body>
 </html>

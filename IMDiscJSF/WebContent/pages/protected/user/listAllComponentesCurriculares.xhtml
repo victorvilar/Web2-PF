@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<b:column span="4"></b:column>
+		<h3>
+			#{msgs.loginHello}: #{userMB.user.name} ||
+			<h:commandLink action="#{userMB.logOut()}" value="#{msgs.logout}" />
+		</h3>
+		<b:column span="4">
+			<h:messages />
+			<h:dataTable
+				value="#{componenteCurricularMB.allComponenteCurriculares}"
+				var="componenteCurricular" styleClass="table"
+				headerClass="tableColumnsHeader"
+				rowClasses="tableFirstLine,tableNextLine">
+				<h:column>
+					<f:facet name="header">
+					Tipo
+					</f:facet>
+				
+				#{componenteCurricular.disciplina.nomeDisciplina}
+			</h:column>
+			<h:column>
+					<f:facet name="header">
+					Tipo
+					</f:facet>
+				
+				#{componenteCurricular.estruturaCurricular.nomeEstrutura}
+			</h:column>
+			
+			
+			
+				<h:column>
+					<f:facet name="header">
+					Tipo
+					</f:facet>
+				
+				#{componenteCurricular.tipo}
+			</h:column>
+				<h:column>
+					<f:facet name="header">
+					Nivel
+					</f:facet>
+				
+				#{componenteCurricular.nivel}
+			</h:column>
+				<h:column>
+					<h:panelGrid columns="2">
+						<!-- Always save the id as hidden when you use a request scope MB -->
+						<h:inputHidden
+							value="#{componenteCurricular.idComponenteCurricular}" />
+
+						<h:commandButton
+							action="#{componenteCurricularMB.updateComponenteCurricularStart()}"
+							value="#{msgs.update}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener
+								target="#{componenteCurricularMB.componenteCurricular}"
+								value="#{componenteCurricular}" />
+						</h:commandButton>
+						<h:commandButton
+							action="#{componenteCurricularMB.deleteComponenteCurricularStart()}"
+							value="#{msgs.delete}" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener
+								target="#{componenteCurricularMB.componenteCurricular}"
+								value="#{componenteCurricular}" />
+						</h:commandButton>
+					</h:panelGrid>
+				</h:column>
+			</h:dataTable>
+		</b:column>
+		<b:column span="4">
+			<!-- This button is displayed to the user, just to you see the error msg  -->
+			<h:commandButton action="createComponenteCurricular"
+				value="#{msgs.create}" />
+			<h:commandButton action="listAllDogs" value="#{msgs.cancel}" />
+		</b:column>
+	</h:form>
+</h:body>
+</html>

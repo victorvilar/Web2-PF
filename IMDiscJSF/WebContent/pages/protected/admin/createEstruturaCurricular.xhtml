@@ -3,34 +3,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<h:messages />
+		<b:column span="4"></b:column>
+		<b:column span="4">
+			<h:messages />
 			<h3>${msgs.CreateHeader}: Estrutura</h3>
-		<h:panelGrid columns="2" styleClass="panelGrid"
-			rowClasses="panelFirstLine,panelNextLine">
+			<h:panelGrid columns="2" styleClass="panelGrid"
+				rowClasses="panelFirstLine,panelNextLine">
 
-			<h:outputLabel for="nomeEstruturaCurricular" value="Nome: " />
-			<h:inputText id="nomeEstruturaCurricular" value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
-				required="true" />
-			
-			<h:outputLabel value="Curso: " />
-			<h:selectOneMenu value="#{estruturaCurricularMB.indexCurso}"> 
-    			<f:selectItems value="#{cursoMB.allCursos}" var="curso" itemValue="#{curso.idCurso}" itemLabel="#{curso.nomeCurso}"/>
-    		</h:selectOneMenu>
-			
-		</h:panelGrid>
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{ estruturaCurricularMB.createEstruturaCurricularEnd() }"
-				value="#{msgs.create}" />
-			<h:commandButton action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }"
-				value="#{msgs.cancel}" immediate="true" />
-		</h:panelGrid>
+				<h:outputLabel for="nomeEstruturaCurricular" value="Nome: " />
+				<h:inputText id="nomeEstruturaCurricular"
+					value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
+					required="true" />
+
+				<h:outputLabel value="Curso: " />
+				<h:selectOneMenu value="#{estruturaCurricularMB.indexCurso}">
+					<f:selectItems value="#{cursoMB.allCursos}" var="curso"
+						itemValue="#{curso.idCurso}" itemLabel="#{curso.nomeCurso}" />
+				</h:selectOneMenu>
+
+			</h:panelGrid>
+			<br />
+			<h:panelGrid columns="2">
+				<h:commandButton
+					action="#{ estruturaCurricularMB.createEstruturaCurricularEnd() }"
+					value="#{msgs.create}" />
+				<h:commandButton
+					action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }"
+					value="#{msgs.cancel}" immediate="true" />
+			</h:panelGrid>
+
+		</b:column>
 		<br />
+		<b:column span="4"></b:column>
 	</h:form>
 </h:body>
 </html>

@@ -11,11 +11,11 @@
 	<h:form>
 		<h:messages/>
 		
-		<h3>#{msgs.DeleteHeader}: #{ componenteCurricularMB.componenteCurricular.nomeComponenteCurricular}?</h3>
+		<h3>#{msgs.DeleteHeader}: #{ componenteCurricularMB.componenteCurricular.idComponenteCurricular}?</h3>
 		<h:inputHidden value="#{ componenteCurricularMB.componenteCurricular.idComponenteCurricular}" />
 		<h:panelGrid columns="2">
 			<h:commandButton action="#{ componenteCurricularMB.deleteComponenteCurricularEnd()}" value="#{msgs.delete}" />
-			<h:commandButton action="#{ componenteCurricularMB.listAllComponenteCurriculars()}" value="#{msgs.cancel}" immediate="true" />
+			<h:commandButton action="#{ componenteCurricularMB.listAllComponentesCurriculares()}" value="#{msgs.cancel}" immediate="true" />
 		</h:panelGrid>
 		<br/>
 	</h:form>

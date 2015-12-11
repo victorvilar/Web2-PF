@@ -3,33 +3,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<h:outputStylesheet library="css" name="main.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<h:messages/>
-		<h3>#{msgs.UpdateHeader}: #{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }</h3>
-		<h:inputText value="#{ estruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }"  />
-		<h:inputText value="#{ estruturaCurricularMB.curso.idCurso }" />
-		<h:inputText  value="#{ estruturaCurricularMB.curso.cargaHoraria }"  />
-		
-		<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine" >
+		<b:column span="4"></b:column>
+		<b:column span="4">
+			<h:messages />
+			<h3>#{msgs.UpdateHeader}: #{
+				estruturaCurricularMB.estruturaCurricular.nomeEstrutura }</h3>
+			<h:inputText
+				value="#{ estruturaCurricularMB.estruturaCurricular.idEstruturaCurricular }" />
+			<h:inputText value="#{ estruturaCurricularMB.curso.idCurso }" />
+			<h:inputText value="#{ estruturaCurricularMB.curso.cargaHoraria }" />
+
+			<h:panelGrid columns="2" styleClass="panelGrid"
+				rowClasses="panelFirstLine,panelNextLine">
+
+				<h:outputLabel for="nomeEstrutura"
+					value="Nome da Estrutura Curricular" />
+				<h:inputText id="nomeEstrutura"
+					value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }"
+					required="true" requiredMessage="Name is required" />
+
+				<h:outputLabel for="idCurso" value="Nome do Curso: " />
+				<h:inputText id="idCurso"
+					value="#{ estruturaCurricularMB.estruturaCurricular.curso.nomeCurso }"
+					required="true" readonly="true">
+				</h:inputText>
+			</h:panelGrid>
 			
-			<h:outputLabel for="nomeEstrutura" value="Nome da Estrutura Curricular" />
-			<h:inputText id="nomeEstrutura" value="#{ estruturaCurricularMB.estruturaCurricular.nomeEstrutura }" required="true" requiredMessage="Name is required"  />
-			
-			<h:outputLabel for="idCurso" value="Nome do Curso: " />
-			<h:inputText id="idCurso" value="#{ estruturaCurricularMB.estruturaCurricular.curso.nomeCurso }" required="true" readonly="true" >
-			
-			</h:inputText>
-		</h:panelGrid>
-		<h:panelGrid columns="2">
-			<h:commandButton action="#{ estruturaCurricularMB.updateEstruturaCurricularEnd() }" value="#{ msgs.update }" />
-			<h:commandButton action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }" value="#{ msgs.cancel }" immediate="true" />
-		</h:panelGrid>
-		<br/>
+			<h:panelGrid columns="2">
+				<h:commandButton
+					action="#{ estruturaCurricularMB.updateEstruturaCurricularEnd() }"
+					value="#{ msgs.update }" />
+				<h:commandButton
+					action="#{ estruturaCurricularMB.listAllEstruturasCurriculares() }"
+					value="#{ msgs.cancel }" immediate="true" />
+			</h:panelGrid>
+				<br />
+		</b:column>
+		<b:column span="4"></b:column>
 	</h:form>
 </h:body>
 </html>

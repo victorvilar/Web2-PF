@@ -1,8 +1,6 @@
 package com.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,26 +13,26 @@ import javax.persistence.SequenceGenerator;
 public class ComponenteCurricular {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_COMPONENTE_CURRICULAR")
+	private int idComponenteCurricular;
 
 	private int nivel;
 	private String tipo;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_estruturaCurricular")
 	private EstruturaCurricular estruturaCurricular;
-	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+	@ManyToOne
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;
-	
-	public int getId() {
-		return id;
+
+	public int getIdComponenteCurricular() {
+		return idComponenteCurricular;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdComponenteCurricular(int idComponenteCurricular) {
+		this.idComponenteCurricular = idComponenteCurricular;
 	}
 
 	public int getNivel() {
@@ -69,4 +67,4 @@ public class ComponenteCurricular {
 		this.disciplina = disciplina;
 	}
 
-	}
+}

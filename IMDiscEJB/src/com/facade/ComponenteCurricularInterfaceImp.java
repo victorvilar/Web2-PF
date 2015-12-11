@@ -13,41 +13,41 @@ import com.model.ComponenteCurricular;
 public class ComponenteCurricularInterfaceImp implements ComponenteCurricularInterface{
 
 	@EJB
-	private ComponenteCurricularDAO componentecurricularDAO;
+	private ComponenteCurricularDAO componenteCurricularDAO;
 	
 	@Override
-	public void save(ComponenteCurricular componentecurricular) {
-		isComponenteCurricularWithAllData(componentecurricular);
+	public void save(ComponenteCurricular componenteCurricular) {
+		isComponenteCurricularWithAllData(componenteCurricular);
 		
-		componentecurricularDAO.save(componentecurricular);
+		componenteCurricularDAO.save(componenteCurricular);
 	}
 
 	@Override
-	public ComponenteCurricular update(ComponenteCurricular componentecurricular) {
-		isComponenteCurricularWithAllData(componentecurricular);
+	public ComponenteCurricular update(ComponenteCurricular componenteCurricular) {
+		isComponenteCurricularWithAllData(componenteCurricular);
 		
-		return componentecurricularDAO.update(componentecurricular);
+		return componenteCurricularDAO.update(componenteCurricular);
 	}
 	
 	@Override
-	public void delete(ComponenteCurricular componentecurricular) {
-		componentecurricularDAO.delete(componentecurricular);
+	public void delete(ComponenteCurricular componenteCurricular) {
+		componenteCurricularDAO.delete(componenteCurricular);
 	}
 
 	@Override
 	public ComponenteCurricular find(int entityID) {
-		return componentecurricularDAO.find(entityID);
+		return componenteCurricularDAO.find(entityID);
 	}
 
 	@Override
 	public List<ComponenteCurricular> findAll() {
-		return componentecurricularDAO.findAll();
+		return componenteCurricularDAO.findAll();
 	}
 	
-	private void isComponenteCurricularWithAllData(ComponenteCurricular componentecurricular){
+	private void isComponenteCurricularWithAllData(ComponenteCurricular componenteCurricular){
 		boolean hasError = false;
 		
-		if(componentecurricular == null){
+		if(componenteCurricular == null){
 			hasError = true;
 		}
 		

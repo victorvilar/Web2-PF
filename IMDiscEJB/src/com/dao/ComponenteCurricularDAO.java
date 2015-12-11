@@ -12,7 +12,7 @@ public class ComponenteCurricularDAO extends GenericDAO<ComponenteCurricular> {
 	    }
 
 	public void delete(ComponenteCurricular componente) {
-		super.delete(componente.getId(), ComponenteCurricular.class);
+		super.delete(componente.getIdComponenteCurricular(), ComponenteCurricular.class);
 	}
 
 }
