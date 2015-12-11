@@ -16,25 +16,60 @@
 			<h:messages />
 
 			<h3>#{msgs.UpdateHeader}: ComponenteCurricular</h3>
-			<h:inputHidden value="#{ componenteCurricularMB.componenteCurricular.idComponenteCurricular}" />
+			<h:inputHidden
+				value="#{ componenteCurricularMB.componenteCurricular.idComponenteCurricular}" />
 
 			<h:panelGrid columns="2" styleClass="panelGrid"
 				rowClasses="panelFirstLine,panelNextLine">
+				<h:outputLabel for="componenteCurricularDisciplina"
+					value="Disciplina" />
+				<h:selectOneMenu value="#{ componenteCurricularMB.indexDisc}">
+					<f:selectItems value="#{ disciplinaMB.allDisciplinas}"
+						var="disciplina" itemValue="#{ disciplina.idDisciplina}"
+						itemLabel="#{ disciplina.codigo}: #{ disciplina.nomeDisciplina} (#{disciplina.cargaHoraria}h)" />
+				</h:selectOneMenu>
+
+				<h:outputLabel for="componenteCurricularEstruturaCurricular"
+					value="EstruturaCurricular" />
+				<h:selectOneMenu value="#{ componenteCurricularMB.indexEst}">
+					<f:selectItems
+						value="#{ estruturaCurricularMB.allEstruturaCurriculares}"
+						var="estruturaCurricular"
+						itemValue="#{ estruturaCurricular.idEstruturaCurricular}"
+						itemLabel="#{estruturaCurricular.nomeEstrutura}" />
+				</h:selectOneMenu>
+
 				<h:outputLabel for="componenteCurricularTipo" value="Tipo" />
-				<h:inputText id="componenteCurricularTipo"
-					value="#{ componenteCurricularMB.componenteCurricular.tipo}" required="true" />
+				<h:selectOneMenu
+					value="#{ componenteCurricularMB.componenteCurricular.tipo}"
+					required="true">
+					<f:selectItem itemValue="Obrigatoria" itemLabel="Obrigatoria" />
+					<f:selectItem itemValue="Optativa" itemLabel="Optativa" />
+				</h:selectOneMenu>
 
 				<h:outputLabel for="componenteCurricularNivel" value="Nivel" />
-				<h:inputText id="componenteCurricularWeight"
-					value="#{ componenteCurricularMB.componenteCurricular.nivel}" required="true">
-					<f:convertNumber />
-				</h:inputText>
+				<h:selectOneMenu
+					value="#{ componenteCurricularMB.componenteCurricular.nivel}">
+					<f:selectItem itemValue="1" itemLabel="1" />
+					<f:selectItem itemValue="2" itemLabel="2" />
+					<f:selectItem itemValue="3" itemLabel="3" />
+					<f:selectItem itemValue="4" itemLabel="4" />
+					<f:selectItem itemValue="5" itemLabel="5" />
+					<f:selectItem itemValue="6" itemLabel="6" />
+					<f:selectItem itemValue="7" itemLabel="7" />
+					<f:selectItem itemValue="8" itemLabel="8" />
+					<f:selectItem itemValue="9" itemLabel="9" />
+					<f:selectItem itemValue="10" itemLabel="10" />
+				</h:selectOneMenu>
+
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
-				<h:commandButton action="#{ componenteCurricularMB.updateComponenteCurricularEnd()}"
+				<h:commandButton
+					action="#{ componenteCurricularMB.updateComponenteCurricularEnd()}"
 					value="#{msgs.update}" />
-				<h:commandButton action="#{ componenteCurricularMB.listAllComponentesCurriculares()}"
+				<h:commandButton
+					action="#{ componenteCurricularMB.listAllComponentesCurriculares()}"
 					value="#{msgs.cancel}" immediate="true" />
 			</h:panelGrid>
 			<br />

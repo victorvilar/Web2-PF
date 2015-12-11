@@ -34,7 +34,7 @@ public class ComponenteCurricularMB {
 	@EJB
 	private EstruturaCurricularInterface estruturaCurricularInterface;
 	private EstruturaCurricular estruturaCurricular;
-	
+
 	private static final String CREATE_COMPONENTE_CURRICULAR = "createComponenteCurricular";
 	private static final String DELETE_COMPONENTE_CURRICULAR = "deleteComponenteCurricular";
 	private static final String UPDATE_COMPONENTE_CURRICULAR = "updateComponenteCurricular";
@@ -68,12 +68,15 @@ public class ComponenteCurricularMB {
 	public String updateComponenteCurricularEnd() {
 		try {
 
-			/*ComponenteCurricular ec = new ComponenteCurricular();
+			ComponenteCurricular ec = new ComponenteCurricular();
 			ec = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
-			curso = ec.getCurso();
-			componenteCurricular.setCurso(curso);
+			disciplina = ec.getDisciplina();
+			estruturaCurricular = ec.getEstruturaCurricular();
 
-			componenteCurricularInterface.update(componenteCurricular);*/
+			componenteCurricular.setDisciplina(disciplina);
+			componenteCurricular.setEstruturaCurricular(estruturaCurricular);
+
+			componenteCurricularInterface.update(componenteCurricular);
 
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the adm1");
@@ -90,8 +93,8 @@ public class ComponenteCurricularMB {
 
 	public String deleteComponenteCurricularEnd() {
 		try {
-			/*componenteCurricular = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
-			componenteCurricularInterface.delete(componenteCurricular);*/
+			componenteCurricular = componenteCurricularInterface.find(componenteCurricular.getIdComponenteCurricular());
+			componenteCurricularInterface.delete(componenteCurricular);
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the ADM");
 			return STAY_IN_THE_SAME_PAGE;
@@ -107,15 +110,15 @@ public class ComponenteCurricularMB {
 
 	public String createComponenteCurricularEnd() {
 		try {
-			
+
 			estruturaCurricular = estruturaCurricularInterface.find(indexEst);
 			disciplina = disciplinaInterface.find(indexDisc);
-			
+
 			componenteCurricular.setDisciplina(disciplina);
 			componenteCurricular.setEstruturaCurricular(estruturaCurricular);
-			
+
 			componenteCurricularInterface.save(componenteCurricular);
-			
+
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error. Call the adm");
 			return STAY_IN_THE_SAME_PAGE;
@@ -131,7 +134,7 @@ public class ComponenteCurricularMB {
 	public String listComponenteCurricularEstrutura() {
 		return LIST_COMPONENTE_CURRICULAR_ESTRUTURA;
 	}
-	
+
 	private void sendInfoMessageToUser(String message) {
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
@@ -156,7 +159,7 @@ public class ComponenteCurricularMB {
 	}
 
 	public Disciplina getDisciplina() {
-		if(disciplina == null){
+		if (disciplina == null) {
 			disciplina = new Disciplina();
 		}
 		return disciplina;
@@ -175,8 +178,8 @@ public class ComponenteCurricularMB {
 	}
 
 	public EstruturaCurricular getEstruturaCurricular() {
-		
-		if(estruturaCurricular == null){
+
+		if (estruturaCurricular == null) {
 			estruturaCurricular = new EstruturaCurricular();
 		}
 		return estruturaCurricular;
@@ -210,6 +213,4 @@ public class ComponenteCurricularMB {
 		this.indexEst = indexEst;
 	}
 
-	
-	
 }
