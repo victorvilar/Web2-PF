@@ -42,6 +42,14 @@
 							value="#{ estruturaCurricular.idEstruturaCurricular }" />
 
 						<h:commandButton
+							action="#{componenteCurricularMB.listComponenteCurricularEstrutura()}"
+							value="Listar componentes da estrutura" rendered="#{userMB.userAdmin}">
+							<f:setPropertyActionListener
+								target="#{componenteCurricularMB.componenteCurricular}"
+								value="#{componenteCurricular}" />
+						</h:commandButton>
+
+						<h:commandButton
 							action="#{ estruturaCurricularMB.updateEstruturaCurricularStart() }"
 							value="#{msgs.update}" rendered="#{userMB.userAdmin}">
 							<f:setPropertyActionListener
