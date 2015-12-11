@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<b:column span="4"></b:column>
+		<b:column span="4">
+			<h:messages />
+
+			<h3>#{msgs.UpdateHeader}: ComponenteCurricular</h3>
+			<h:inputHidden value="#{ componenteCurricularMB.componenteCurricular.idComponenteCurricular}" />
+
+			<h:panelGrid columns="2" styleClass="panelGrid"
+				rowClasses="panelFirstLine,panelNextLine">
+				<h:outputLabel for="componenteCurricularTipo" value="Tipo" />
+				<h:inputText id="componenteCurricularTipo"
+					value="#{ componenteCurricularMB.componenteCurricular.tipo}" required="true" />
+
+				<h:outputLabel for="componenteCurricularNivel" value="Nivel" />
+				<h:inputText id="componenteCurricularWeight"
+					value="#{ componenteCurricularMB.componenteCurricular.nivel}" required="true">
+					<f:convertNumber />
+				</h:inputText>
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<h:commandButton action="#{ componenteCurricularMB.updateComponenteCurricularEnd()}"
+					value="#{msgs.update}" />
+				<h:commandButton action="#{ componenteCurricularMB.listAllComponenteCurriculars()}"
+					value="#{msgs.cancel}" immediate="true" />
+			</h:panelGrid>
+			<br />
+		</b:column>
+		<b:column span="4"></b:column>
+	</h:form>
+</h:body>
+</html>

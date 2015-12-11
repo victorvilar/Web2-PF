@@ -34,7 +34,6 @@ public class User {
 	@Column(unique = true)	
 	private long matricula;
 	
-	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Escolha> escolhas;
 

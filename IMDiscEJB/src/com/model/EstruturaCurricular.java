@@ -4,13 +4,10 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -33,12 +30,11 @@ public class EstruturaCurricular implements Serializable {
 	@JoinColumn(name = "idCurso")
 	private Curso curso;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "estruturacurricular_disciplina", joinColumns = @JoinColumn(name = "id_estruturacurricular") , inverseJoinColumns = @JoinColumn(name = "id_disciplina") )
-	private Collection<Disciplina> disciplinas;
+	@OneToMany(mappedBy = "estruturaCurricular")
+	private Collection<ComponenteCurricular> componentesCurriculares;
 
-	//GETTERS AND SETTERS
-	
+	// GETTERS AND SETTERS
+
 	public int getIdEstruturaCurricular() {
 		return idEstruturaCurricular;
 	}
@@ -71,15 +67,12 @@ public class EstruturaCurricular implements Serializable {
 		this.curso = curso;
 	}
 
-	public Collection<Disciplina> getDisciplinas() {
-		return disciplinas;
+	public Collection<ComponenteCurricular> getComponentesCurriculares() {
+		return componentesCurriculares;
 	}
 
-	public void setDisciplinas(Collection<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setComponentesCurriculares(Collection<ComponenteCurricular> componentesCurriculares) {
+		this.componentesCurriculares = componentesCurriculares;
 	}
 
-
-	
-	
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="main.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<b:column span="4"></b:column>
+		<b:column span="4">
+			<h:messages />
+			<h3>Criar Componente Curricular</h3>
+
+			<h:panelGrid columns="2" styleClass="panelGrid" rowClasses="panelFirstLine,panelNextLine">
+
+				<h:outputLabel value="Tipo: " />
+				<h:selectOneMenu value="#{componenteCurricularMB.componenteCurricular.tipo}">
+					<f:selectItems value="Obrigatoria" itemValue="Obrigatoria"
+						itemLabel="Obrigatoria" />
+					<f:selectItems value="Optativa" itemValue="Optativa"
+						itemLabel="Optativa" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="Nivel: " />
+				<h:selectOneMenu value="#{componenteCurricularMB.componenteCurricular.nivel}">
+					<f:selectItems itemValue="1" itemLabel="1" />
+					<f:selectItems itemValue="2" itemLabel="2" />
+					<f:selectItems itemValue="3" itemLabel="3" />
+					<f:selectItems itemValue="4" itemLabel="4" />
+					<f:selectItems itemValue="5" itemLabel="5" />
+					<f:selectItems itemValue="6" itemLabel="6" />
+					<f:selectItems itemValue="7" itemLabel="7" />
+					<f:selectItems itemValue="8" itemLabel="8" />
+					<f:selectItems itemValue="9" itemLabel="9" />
+					<f:selectItems itemValue="10" itemLabel="10" />		
+				</h:selectOneMenu>
+
+			<h:outputLabel value="Estrutura Curricular: " />
+			<h:selectOneMenu value="#{componenteCurricularMB.indexEst}"> 
+    			<f:selectItems value="#{estruturaCurricularMB.allEstruturaCurriculares}" var="estruturaCurricular" itemValue="#{estruturaCurricular.idEstruturaCurricular}" itemLabel="#{estruturaCurricular.nomeEstrutura}"/>
+    		</h:selectOneMenu>
+    		
+    		<h:outputLabel value="Disciplina: " />
+			<h:selectOneMenu value="#{componenteCurricularMB.indexDisc}"> 
+    			<f:selectItems value="#{disciplinaMB.allDisciplinas}" var="disciplina" itemValue="#{disciplina.idDisciplina}" itemLabel="#{disciplina.nomeDisciplina}"/>
+    		</h:selectOneMenu>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2">
+				<h:commandButton
+					action="#{ componenteCurricularMB.createComponenteCurricularEnd()}"
+					value="#{msgs.create}" />
+				<h:commandButton
+					action="#{ componenteCurricularMB.listAllComponentesCurriculares()}"
+					value="#{msgs.cancel}" immediate="true" />
+			</h:panelGrid>
+
+		</b:column>
+		<b:column span="4"></b:column>
+	</h:form>
+</h:body>
+</html>

@@ -28,13 +28,18 @@
 		</b:column>
 		<b:column span="4">
 			<!-- This button is displayed to the user, just to you see the error msg  -->
-			<h:commandButton action="createDog"
-				value="#{msgs.create} #{msgs.dog}" />
 			<h:commandButton action="createDisciplina" value="Criar Disciplina" />
 			<h:commandButton action="createCurso" value="Criar Curso" />
 			<h:commandButton action="createUser" value="Criar Usuario" />
 			<h:commandButton action="createEscolha" value="Criar Escolha" />
 			<h:commandButton action="createEstruturaCurricular" value="Criar EC" />
+			
+			<h:commandButton action="listAllCursos" value="Listar Cursos" />
+			<h:commandButton action="listAllUser" value="Listar Usuarios" />
+			<h:commandButton action="listAllEstruturasCurriculares" value="Listar Estruturas Curriculares" />
+			<h:commandButton action="listAllDisciplinas" value="Listar Disciplinas" />	
+			
+			<h:commandButton action="createComponenteCurricular" value="Componente Curricular" />
 
 		</b:column>
 	</h:form>

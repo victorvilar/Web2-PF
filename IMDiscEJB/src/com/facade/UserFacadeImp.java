@@ -59,10 +59,6 @@ public class UserFacadeImp implements UserFacade {
 		System.out.println("Matricula: " + user.getMatricula());
 		System.out.println();
 		
-		if(user == null){
-			hasError = true;
-		}
-		
 		if (user.getPassword() == null || "".equals(user.getPassword().trim())){
 			hasError = true;
 		}
