@@ -3,7 +3,9 @@ package com.model;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,14 +25,14 @@ public class EstruturaCurricular implements Serializable {
 
 	private String nomeEstrutura;
 
-	@OneToMany(mappedBy = "estruturaCurricular")
+	@OneToMany(mappedBy = "estruturaCurricular", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<User> users;
 
 	@ManyToOne
 	@JoinColumn(name = "idCurso")
 	private Curso curso;
 
-	@OneToMany(mappedBy = "estruturaCurricular")
+	@OneToMany(mappedBy = "estruturaCurricular", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<ComponenteCurricular> componentesCurriculares;
 
 	// GETTERS AND SETTERS

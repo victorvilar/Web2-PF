@@ -24,9 +24,9 @@ public class Escolha implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESCOLHA")
 	private int idEscolha;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "escolha_disciplina", joinColumns = @JoinColumn(name = "id_escolha") , inverseJoinColumns = @JoinColumn(name = "id_disciplina") )
-	private Collection<Disciplina> disciplinas;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "escolha_componenteCurricular", joinColumns = @JoinColumn(name = "id_escolha") , inverseJoinColumns = @JoinColumn(name = "id_componente") )
+	private Collection<ComponenteCurricular> componenteCurricular;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUser")
@@ -50,14 +50,15 @@ public class Escolha implements Serializable {
 		this.idEscolha = idEscolha;
 	}
 	
-	public Collection<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
 	
-	public void setDisciplinas(Collection<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public Collection<ComponenteCurricular> getComponenteCurricular() {
+		return componenteCurricular;
 	}
-	
+
+	public void setComponenteCurricular(Collection<ComponenteCurricular> componenteCurricular) {
+		this.componenteCurricular = componenteCurricular;
+	}
+
 	public User getUser() {
 		return user;
 	}

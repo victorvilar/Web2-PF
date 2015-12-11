@@ -3,6 +3,7 @@ package com.model;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,14 +27,14 @@ public class Disciplina implements Serializable {
 	private String nomeDisciplina;
 	@Column(nullable = false)
 	private int cargaHoraria;
-	@Column(nullable = false)
+	@Column(nullable = false, unique=true)
 	private String codigo;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "escolha_disciplina", joinColumns = @JoinColumn(name = "id_disciplina") , inverseJoinColumns = @JoinColumn(name = "id_escolha") )
 	private Collection<Escolha> escolhas;
 
-	@OneToMany(mappedBy = "disciplina")
+	@OneToMany(mappedBy = "disciplina", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<ComponenteCurricular> componentesCurriculares;
 
 	public int getIdDisciplina() {

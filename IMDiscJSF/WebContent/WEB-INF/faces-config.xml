@@ -9,12 +9,14 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>listAllDogs</from-outcome>
 			<to-view-id>/pages/protected/user/listAllDogs.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>createDog</from-outcome>
@@ -22,12 +24,14 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>updateDog</from-outcome>
 			<to-view-id>/pages/protected/admin/updateDog.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>deleteDog</from-outcome>
@@ -185,7 +189,6 @@
 			<to-view-id>/pages/protected/admin/updateComponenteCurricular.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
 
 
 	<application>

@@ -3,7 +3,9 @@ package com.model;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class Curso implements Serializable {
 	private int cargaHoraria;
 	
 	// 1 -> *
-	@OneToMany(mappedBy="curso") 
+	@OneToMany(mappedBy="curso", cascade = CascadeType.ALL, fetch = FetchType.LAZY) 
 	private Collection<EstruturaCurricular> estruturasCurriculares;
 
 	public int getIdCurso() {

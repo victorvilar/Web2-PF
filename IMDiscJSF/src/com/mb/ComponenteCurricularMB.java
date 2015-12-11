@@ -20,29 +20,21 @@ import com.model.EstruturaCurricular;
 @RequestScoped
 public class ComponenteCurricularMB {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8187732078408137806L;
-
-	int indexDisc = -1;
-	int indexEst = -1;
-
-	private ComponenteCurricular componenteCurricular;
+	private int indexDisc = -1;
+	private int indexEst = -1;
 
 	@EJB
 	private ComponenteCurricularInterface componenteCurricularInterface;
-
-	private Disciplina disciplina;
+	private ComponenteCurricular componenteCurricular;
 
 	@EJB
 	private DisciplinaInterface disciplinaInterface;
-
-	private EstruturaCurricular estruturaCurricular;
+	private Disciplina disciplina;
 
 	@EJB
 	private EstruturaCurricularInterface estruturaCurricularInterface;
-
+	private EstruturaCurricular estruturaCurricular;
+	
 	private static final String CREATE_COMPONENTE_CURRICULAR = "createComponenteCurricular";
 	private static final String DELETE_COMPONENTE_CURRICULAR = "deleteComponenteCurricular";
 	private static final String UPDATE_COMPONENTE_CURRICULAR = "updateComponenteCurricular";
